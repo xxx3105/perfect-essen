@@ -4,6 +4,8 @@ const tastyTreats = new apiTastyTreats();
 
 import { filterFoods } from './filters-cat-pop.js';
 
+import { hrefValue } from '../main.js';
+
 const hideHero = document.getElementById('herocont');
 const hidePop = document.getElementById('popular-hidden');
 const hideFilter = document.getElementById('filters-hidden');
@@ -170,7 +172,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   1
                 )}" id="first-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -178,7 +180,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   2
                 )}" id="second-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -186,7 +188,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   3
                 )}" id="third-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -194,7 +196,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   4
                 )}" id="fourth-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+               <use href="${hrefValue}#icon-star"></use>
                   
                 </svg>
               </li>
@@ -203,7 +205,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   5
                 )}" id="fift-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
             </ul>

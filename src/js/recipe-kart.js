@@ -2,6 +2,8 @@ import apiTastyTreats from './api.js';
 
 const tastyTreats = new apiTastyTreats();
 
+import { hrefValue } from '../main.js';
+
 export function filterAndLogData(targetId, filtrFoodList) {
   // Вывод отфильтрованных данных в консоль
   //console.log('Отфильтрованные данные:', filtrFoodList);
@@ -95,7 +97,7 @@ export function filterAndLogData(targetId, filtrFoodList) {
               class="star-icon-first ${getRatingColorClass(reciepRati, 1)}"
               id="first-star"
             >
-              <use href="./img/symbol-defs.svg#icon-star"></use>
+              <use href="${hrefValue}#icon-star"></use>
             </svg>
           </li>
           <li>
@@ -103,7 +105,7 @@ export function filterAndLogData(targetId, filtrFoodList) {
               class="star-icon-second ${getRatingColorClass(reciepRati, 2)}"
               id="second-star"
             >
-              <use href="./img/symbol-defs.svg#icon-star"></use>
+              <use href="${hrefValue}#icon-star"></use>
             </svg>
           </li>
           <li>
@@ -111,7 +113,7 @@ export function filterAndLogData(targetId, filtrFoodList) {
               class="star-icon-third ${getRatingColorClass(reciepRati, 3)}"
               id="third-star"
             >
-              <use href="./img/symbol-defs.svg#icon-star"></use>
+              <use href="${hrefValue}#icon-star"></use>
             </svg>
           </li>
           <li>
@@ -119,7 +121,7 @@ export function filterAndLogData(targetId, filtrFoodList) {
               class="star-icon-fourth ${getRatingColorClass(reciepRati, 4)}"
               id="fourth-star"
             >
-              <use href="./img/symbol-defs.svg#icon-star"></use>
+              <use href="${hrefValue}#icon-star"></use>
             </svg>
           </li>
           <li>
@@ -127,7 +129,7 @@ export function filterAndLogData(targetId, filtrFoodList) {
               class="star-icon-fift ${getRatingColorClass(reciepRati, 5)}"
               id="fift-star"
             >
-              <use href="./img/symbol-defs.svg#icon-star"></use>
+              <use href="${hrefValue}#icon-star"></use>
             </svg>
           </li>
         </ul>

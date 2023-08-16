@@ -8,3 +8,8 @@ import './js/hero';
 import './js/popular';
 import './js/recipe-kart';
 import './js/favorits';
+
+//Замена ссылок на имж
+
+const useElement = document.querySelector('#svg-way use');
+export const hrefValue = useElement.getAttribute('href');

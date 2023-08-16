@@ -4,6 +4,8 @@ const tastyTreats = new apiTastyTreats();
 
 import { filterAndLogData } from './recipe-kart.js';
 
+import { hrefValue } from '../main.js';
+
 //переменные
 
 const listTime = document.getElementById('time');
@@ -296,7 +298,7 @@ export function filterFoods() {
       <div class="kart-gradietn"></div>
       <div class="kart-andere-information">
         <svg class="heart-icon" data-key-information="${keyInformationId}" id="${keyInformationId}">
-          <use href="./img/symbol-defs.svg#icon-heart"></use>
+          <use href="${hrefValue}#icon-heart"></use>
         </svg>
         <h2 class="kart-name-food">${keyInformationTitle}</h2>
         <p class="kart-food-descr">
@@ -312,7 +314,7 @@ export function filterFoods() {
                   keyInformationRat,
                   1
                 )}" id="first-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -320,7 +322,7 @@ export function filterFoods() {
                   keyInformationRat,
                   2
                 )}" id="second-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <use href="${hrefValue}#icon-star"></use>  
                 </svg>
               </li>
               <li>
@@ -328,7 +330,7 @@ export function filterFoods() {
                   keyInformationRat,
                   3
                 )}" id="third-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <use href="${hrefValue}#icon-star"></use>  
                 </svg>
               </li>
               <li>
@@ -336,7 +338,7 @@ export function filterFoods() {
                   keyInformationRat,
                   4
                 )}" id="fourth-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                <use href="${hrefValue}#icon-star"></use>  
                 </svg>
               </li>
               <li>
@@ -344,7 +346,7 @@ export function filterFoods() {
                   keyInformationRat,
                   5
                 )}" id="fift-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="${hrefValue}#icon-star"></use>  
                 </svg>
               </li>
             </ul>
