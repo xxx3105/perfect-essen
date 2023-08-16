@@ -1,0 +1,240 @@
+/* ///RECEIPE KART */
+
+.receipe-kart {
+  width: 335px;
+  height: auto;
+  border-radius: 15px;
+  background-color: var(--boody-bg);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 7;
+  top: auto;
+  left: auto;
+}
+
+.receipe-video {
+  width: 295px;
+  height: 295px;
+  border-radius: 8px;
+  margin: 6px 20px 20px;
+}
+
+.receipe-kart-сross {
+  width: 20px;
+  height: 20px;
+  stroke: black;
+  cursor: pointer;
+  float: right;
+  margin: 14px 14px 0 0;
+}
+
+.receipe-text-container {
+  margin: 0 20px 40px;
+  background-color: var(--boody-bg);
+}
+
+.receipe-titel {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+.receipe-rating-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 33px;
+  margin-top: 14px;
+}
+
+.receipe-number-time-rait {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.285;
+  color: #05050580;
+}
+
+.receipe-number-rait {
+  margin-left: 16px;
+  text-align: left;
+}
+
+.receipe-list-rating {
+  margin-right: 0;
+}
+
+.receipe-ingr-list-element {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #0505051a;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+}
+
+.receipe-ingr-type {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2857;
+  color: #050505;
+}
+.receipe-ingr-quantity {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2857;
+  color: #05050580;
+}
+
+.recipe-tag-list {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.recipe-tag-list-elem {
+  height: auto;
+  border: 1px solid #05050533;
+  border-radius: 35px;
+  padding: 8px 16px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.recipe-food-descr {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2857;
+  color: #050505cc;
+}
+
+.recipe-button-block {
+  display: flex;
+  padding: 40px 0 0;
+  justify-content: center;
+  gap: 14px;
+}
+
+.recipe-favor-button {
+  border-radius: 15px;
+  background-color: #9bb537;
+  border-style: none;
+  color: var(--boody-bg);
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2142;
+  width: 148px;
+}
+
+.recive-rating-button {
+  border-radius: 15px;
+  background-color: var(--boody-bg);
+  border-style: none;
+  border: 1px solid #9bb537;
+  color: #050505;
+
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2142;
+}
+
+/* //RATING KART  */
+
+.rating-kart-field {
+  height: 216px;
+  width: 335px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--boody-bg);
+
+  z-index: 29;
+  display: none;
+}
+
+.star-icon {
+  fill: #0505052e;
+  width: 24px;
+  gap: 2px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star-icon:hover {
+  fill: #eea10c;
+  stroke: #eea10c;
+}
+
+.rating-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2857;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.rating-number {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-left: 20px;
+  padding-right: 8px;
+}
+
+.kart-list-rating-dialog {
+  display: flex;
+  margin-top: 4px;
+}
+
+.rating-email-field {
+  width: 295px;
+  height: 46px;
+  margin-top: 24px;
+  margin-left: 20px;
+  border-radius: 15px;
+  border-style: none;
+  border: 1px solid #05050533;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2857;
+  padding-left: 18px;
+  margin-bottom: 14px;
+  color: #05050563;
+  padding-top: 12px;
+}
+
+.rating-send-button {
+  width: 295px;
+  height: 46px;
+
+  margin-left: 20px;
+  border-radius: 15px;
+  border-style: none;
+  background-color: #9bb537;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2857;
+  margin-bottom: 14px;
+  color: var(--boody-bg);
+}
+
+.rating-kart-сross {
+  width: 20px;
+  height: 20px;
+  stroke: black;
+  cursor: pointer;
+  float: right;
+  margin: 14px 14px 0 0;
+}

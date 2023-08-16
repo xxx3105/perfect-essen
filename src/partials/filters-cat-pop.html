@@ -1,0 +1,287 @@
+<div class="container">
+  <div class="categor-standart">
+    <button type="button" class="cat-button" id="categ-button">
+      All categories
+    </button>
+    <div class="categories-container"></div>
+  </div>
+
+  <!-- ///Создание в избранном категорий выбр рецеп -->
+
+  <div class="category-fav">
+    <div class="cat-fav-list">
+      <div>
+        <button class="cat-button-fav" data-category="All">
+          All categories
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popular-container-gen" id="popular-hidden">
+    <h2 class="pop-title">POPULAR RECIPES</h2>
+    <div class="popular-container"></div>
+  </div>
+
+  <div class="filters" id="filters-hidden">
+    <div>
+      <p class="filter-name-of-filed">Search</p>
+
+      <form action="/search" method="get">
+        <input
+          type="search"
+          class="filter-search"
+          id="search-input"
+          name="q"
+          placeholder="Enter Text"
+          required
+        />
+      </form>
+    </div>
+
+    <div class="filters-area-time-position">
+      <div>
+        <p class="filter-name-of-filed">Time</p>
+        <select id="time" name="time">
+          <option id="time-option" value="0 min">0 min</option>
+        </select>
+      </div>
+
+      <div>
+        <p class="filter-name-of-filed">Area</p>
+        <select id="area" name="area">
+          <option value="Region">Region</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <p class="filter-name-of-filed">Ingridients</p>
+      <select id="ingr" name="ingr">
+        <option value="Product">Product</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="reset-button-position" id="resetButton">
+    <svg class="green-kreuz">
+      <use href="../img/symbol-defs.svg#icon-cross"></use>
+    </svg>
+    <p class="name-of-kreuz">Reset the filter</p>
+  </div>
+  <!-- //КАРТЫ -->
+
+  <div class="recipe-kart-platz" id="recipe-kart-platz"></div>
+
+  <div class="karten-block" id="karten-platz"></div>
+
+  <div class="karten-block-fav" id="kart-platz-fav"></div>
+
+  <div class="rating-kart-field">
+    <svg class="rating-kart-сross" id="rating-kart-cross">
+      <use href="./img/symbol-defs.svg#icon-cross"></use>
+    </svg>
+    <p class="rating-name">Rating</p>
+
+    <ul class="kart-list-rating-dialog">
+      <li class="rating-number">0</li>
+      <li>
+        <svg class="star-icon" data-rating="1" id="star-rat-one">
+          <use href="./img/symbol-defs.svg#icon-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg class="star-icon" data-rating="2" id="star-rat-two">
+          <use href="./img/symbol-defs.svg#icon-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg class="star-icon" data-rating="3" id="star-rat-three">
+          <use href="./img/symbol-defs.svg#icon-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg class="star-icon" data-rating="4" id="star-rat-four">
+          <use href="./img/symbol-defs.svg#icon-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg class="star-icon" data-rating="5" id="star-rat-five">
+          <use href="./img/symbol-defs.svg#icon-star"></use>
+        </svg>
+      </li>
+    </ul>
+
+    <form>
+      <textarea
+        class="rating-email-field"
+        id="rating-email-form"
+        name="email"
+        rows="1"
+      ></textarea>
+
+      <input
+        class="rating-send-button"
+        id="rating-email-send"
+        type="submit"
+        value="Send"
+      />
+    </form>
+
+    <!-- ///ESSEN KARTEN -->
+
+    <!-- <div class="kard-prod-contatiner">
+      <img
+        class="kart-bild"
+        src="https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+        alt=""
+      />
+      <div class="kart-gradietn"></div>
+      <div class="kart-andere-information">
+        <svg class="heart-icon">
+          <use href="./img/symbol-defs.svg#icon-heart"></use>
+        </svg>
+        <h2>NAME DES ESSEN</h2>
+        <p>
+          Bescreibung des essen Lorem ipsum dolor sit amet consectetur
+          adipisicing elit.
+        </p>
+
+        <div class="kart-unten-teil-kart">
+          <div>4.5</div>
+          <div>
+            <ul class="kart-list-rating">
+              <li>
+                <svg class="star-icon">
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                </svg>
+              </li>
+              <li>
+                <svg class="star-icon">
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                </svg>
+              </li>
+              <li>
+                <svg class="star-icon">
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                </svg>
+              </li>
+              <li>
+                <svg class="star-icon">
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                </svg>
+              </li>
+              <li>
+                <svg class="star-icon">
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                </svg>
+              </li>
+            </ul>
+          </div>
+          <div><button>See recipe</button></div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- ///RECIPE KART -->
+
+    <!-- 
+<div class="receipe-kart">
+  <svg class="receipe-kart-сross">
+    <use href="./img/symbol-defs.svg#icon-cross"></use>
+  </svg>
+
+  <iframe
+    width="295"
+    height="295"
+    class="receipe-video"
+    src="https://www.youtube.com/embed/dsJtgmAhFF4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <div class="receipe-text-container">
+    <h2 class="receipe-titel">NAME OF RECIPES</h2>
+    <div class="receipe-rating-line">
+      <p class="receipe-number-time-rait">5.0</p>
+      <div>
+        <ul class="kart-list-rating receipe-list-rating">
+          <li>
+            <svg
+              class="star-icon-first ${getRatingColorClass(keyInformationRat, 1)}"
+              id="first-star"
+            >
+              <use href="./img/symbol-defs.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li>
+            <svg
+              class="star-icon-second ${getRatingColorClass(keyInformationRat, 2)}"
+              id="second-star"
+            >
+              <use href="./img/symbol-defs.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li>
+            <svg
+              class="star-icon-third ${getRatingColorClass(keyInformationRat, 3)}"
+              id="third-star"
+            >
+              <use href="./img/symbol-defs.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li>
+            <svg
+              class="star-icon-fourth ${getRatingColorClass(keyInformationRat, 4)}"
+              id="fourth-star"
+            >
+              <use href="./img/symbol-defs.svg#icon-star"></use>
+            </svg>
+          </li>
+          <li>
+            <svg
+              class="star-icon-fift ${getRatingColorClass(keyInformationRat, 5)}"
+              id="fift-star"
+            >
+              <use href="./img/symbol-defs.svg#icon-star"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+      <p class="receipe-number-time-rait receipe-number-rait">50 min</p>
+    </div>
+
+    <div class="receipe-ingr-list-element">
+      <div class="receipe-ingr-type">Banana</div>
+      <div class="receipe-ingr-quantity">1 large</div>
+    </div>
+    <div class="receipe-ingr-list-element">
+      <div class="receipe-ingr-type">Sugar</div>
+      <div class="receipe-ingr-quantity">1 large</div>
+    </div>
+
+    <ul class="recipe-tag-list">
+      <li class="recipe-tag-list-elem">#Breakfast</li>
+    </ul>
+
+    <p class="recipe-food-descr">
+      Mash the ripe banana in a medium mixing bowl. Add the egg and whisk
+      together until well combined. Add the flour, baking powder, cinnamon (if
+      using), and salt, and stir until just combined. Heat a non-stick skillet
+      or griddle o ver medium heat and add the vegetable oil or melted butter.
+      Scoop the batter onto the skillet or griddle using a 1/4 cup measure, and
+      cook for 2-3 minutes on each side, or until the pancakes are golden brown
+      and cooked through. Serve warm with your favorite toppings such as maple
+      syrup, sliced bananas, or whipped cream.
+    </p>
+
+    <div class="recipe-button-block">
+      <button type="button" class="recipe-favor-button">Add to favorite</button>
+
+      <button type="button" class="recive-rating-button">Give a raiting</button>
+    </div>
+  </div>
+</div> -->
+  </div>
+</div>

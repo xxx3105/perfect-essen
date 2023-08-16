@@ -1,0 +1,140 @@
+.container-hero {
+  max-width: 375px;
+
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  overflow: hidden !important;
+}
+
+.hero-title {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-green-text {
+  color: #9bb537;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero-site-descr {
+  line-height: 1.2857;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 14px;
+}
+
+.hero-order-now {
+  width: 111px;
+  height: 37px;
+  border: 1px solid #9bb537;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.21;
+  background-color: var(--boody-bg);
+  margin-top: 28px;
+}
+
+/* CARDS/ */
+
+.slider-food-descr {
+  font-weight: 500;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(248, 248, 248, 0.6);
+  line-height: 1.4;
+  width: 144px;
+  height: 28px;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 34px;
+  left: 13px;
+}
+
+.slider-country {
+  font-weight: 400;
+  text-align: center;
+  font-size: 8px;
+  line-height: 1.5;
+  color: rgba(248, 248, 248, 0.2);
+  position: absolute;
+  bottom: 14px;
+  left: 67px;
+}
+
+.swiper,
+.mySwiper {
+  overflow: hidden;
+}
+
+.swiper {
+  width: 335px;
+  height: 302px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.slider {
+  width: 335px;
+  height: 302px;
+  display: flex;
+  min-width: 0;
+}
+
+.slider-left-part {
+  width: 335px;
+  height: 208px;
+  margin-bottom: 48px;
+}
+
+.slider-list {
+  display: flex;
+  gap: 8px;
+  min-width: 0%;
+}
+
+.swiper-wrapper {
+  width: 335px;
+}
+
+.slider-img-one {
+  width: 80px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.slider-img-two {
+  width: 157px;
+  height: 142px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider-second-part,
+.slider-img-three {
+  width: 200px;
+  height: 280px;
+  border-radius: 15px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(155, 181, 55, 0.3) -200%,
+    #050505 100%
+  );
+}
+
+.slider-second-part {
+  position: relative;
+}
+
+.slider-img-three {
+  object-fit: cover;
+  overflow: hidden;
+}

@@ -1,0 +1,353 @@
+/* CATEGORIES */
+
+.categories-container {
+  width: 396px;
+  height: 196px;
+  overflow: scroll;
+}
+
+.cat-button {
+  width: 176px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.21;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  background-color: var(--boody-bg);
+  color: rgba(5, 5, 5, 0.5);
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 80px;
+}
+
+.cat-button-active {
+  background-color: #9bb537;
+  color: #f8f8f8;
+  border: none;
+}
+
+.categories-container {
+  width: 326px;
+  height: 198px;
+  margin-top: 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  overflow-x: hidden;
+}
+
+.cat-option {
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.3);
+  line-height: 1.2857;
+  margin-bottom: 18px;
+
+  outline: none;
+  font-weight: 500;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--boody-bg);
+  text-align: left;
+  border-style: none;
+}
+
+.cat-option-act {
+  color: #9bb537;
+}
+
+/* popular */
+
+.popular-container-gen {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.popular-container {
+  height: 158px;
+  width: 335px;
+  overflow: hidden;
+}
+
+.pop-title {
+  width: 166px;
+  height: 24px;
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: 600;
+  color: #050505;
+  margin-bottom: 20px;
+}
+
+.pop-klein-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.popular-image {
+  width: 64px;
+  height: 64px;
+}
+
+.pop-recht-teil {
+  width: 252px;
+  height: 67px;
+}
+
+.popular-name {
+  text-transform: uppercase;
+  width: 136px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 1.28;
+  font-weight: 600;
+  color: #050505;
+}
+
+.popular-descr {
+  width: 252px;
+  height: 34px;
+  font-size: 12px;
+  line-height: 1.33;
+  font-weight: 400;
+  color: #050505;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Максимальное количество строк */
+  -webkit-box-orient: vertical;
+}
+
+/* //FILTERS */
+
+.marker-filter {
+  color: rgba(5, 5, 5, 0.5);
+}
+
+#area option {
+  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+}
+
+#area option:checked {
+  color: black; /* Цвет текста для выбранной опции */
+}
+
+#time option {
+  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+}
+
+#time option:checked {
+  color: black; /* Цвет текста для выбранной опции */
+}
+
+#ingr option {
+  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+}
+
+#ingr option:checked {
+  color: black; /* Цвет текста для выбранной опции */
+}
+
+/* //reset button */
+
+.reset-button-position {
+  display: flex;
+  margin-top: 14px;
+  margin-left: 235px;
+}
+
+.green-kreuz {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  fill: #9bb537;
+  stroke: #9bb537;
+}
+
+.name-of-kreuz {
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 12px;
+  left: 20px;
+  cursor: pointer;
+}
+
+/* 
+//ВНЕШНИЙ ВИД ВЫПАД СПИСКА */
+#search-input,
+#time,
+#area,
+#ingr {
+  padding: 14px 48px;
+  width: 188px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: rgba(5, 5, 5, 0.5);
+  line-height: 1.28;
+  padding-left: 18px;
+  background-color: var(--boody-bg);
+  outline: none;
+  font-weight: 500;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 14px;
+}
+
+#time,
+#area,
+.filter-name-of-filed,
+.filter-name-of-filed {
+  width: 161px;
+}
+
+#search-input,
+.filter-search {
+  width: 335px;
+}
+
+#search-input:valid {
+  color: rgba(5, 5, 5);
+}
+
+.filters-area-time-position {
+  display: flex;
+  gap: 14px;
+}
+
+.filter-name-of-filed {
+  margin-bottom: 8px;
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 12px;
+  left: 20px;
+  margin-top: 14px;
+}
+
+/* ///БЛОК КАРТ */
+.karten-block {
+  margin-top: 20px;
+}
+
+.kard-prod-contatiner {
+  position: relative;
+  width: 335px;
+  height: 335px;
+  margin-bottom: 24px;
+}
+
+.kart-bild {
+  width: 335px;
+  height: 335px;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.kart-gradietn {
+  background-image: linear-gradient(to right, #050505 0%, #050505 60%);
+  width: 335px;
+  height: 335px;
+  position: absolute;
+  border-radius: 8px;
+  opacity: 10%;
+}
+
+.kart-andere-information {
+  position: absolute;
+  margin-left: 16px;
+}
+
+.heart-icon {
+  cursor: pointer;
+  fill: none;
+  stroke: var(--boody-bg);
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin: 16px 16px;
+}
+
+.heart-icon-toggle {
+  fill: var(--boody-bg);
+}
+
+.kart-name-food {
+  margin-top: 214px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2857;
+  text-transform: uppercase;
+  color: #f8f8f8;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 280px;
+  height: 18px;
+}
+
+.kart-food-descr {
+  width: 303px;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.333;
+  color: #f8f8f8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.star-icon-first,
+.star-icon-second,
+.star-icon-third,
+.star-icon-fourth,
+.star-icon-fift {
+  fill: #eea10c;
+  width: 18px;
+  height: 18px;
+}
+
+.filters-icon-rating-black {
+  fill: #0000002b;
+  width: 18px;
+  height: 18px;
+}
+
+/* fill: #eea10c; */
+/* fill: #F8F8F81A; */
+
+.kart-list-rating {
+  display: flex;
+  margin-left: 4px;
+  margin-right: 98px;
+}
+
+.kart-unten-teil-kart {
+  display: flex;
+  margin-top: 16px;
+  margin-right: 16px;
+  float: right;
+}
+
+.kart-raiting {
+  text-align: center;
+  color: #f8f8f8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2857;
+}
+
+.kart-recept-button {
+  width: 89px;
+  height: 31px;
+  color: var(--boody-bg);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.21;
+  background-color: #9bb537;
+  border-style: none;
+}

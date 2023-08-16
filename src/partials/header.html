@@ -1,13 +1,86 @@
-<header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="./page-2.html" class="nav-link">Page 2</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="./page-3.html" class="nav-link">Page 3</a>
-      </li>
-    </ul>
+<div class="container head-position">
+  <div class="modal-order-backdrop"></div>
+  <nav class="head-nav-nav">
+    <div>home</div>
+    <div>favorites</div>
   </nav>
-</header>
+  <div class="head-logo-pos">
+    <p class="head-logo-text-sty">
+      <span class="head-logo">tasty</span>treats.
+    </p>
+  </div>
+  <div class="head-ord-button" id="head-order-but">
+    <svg class="head-order-basket">
+      <use href="./img/symbol-defs.svg#icon-order-basket"></use>
+    </svg>
+  </div>
+  <div class="head-hamb-button" id="head-hamb-but">
+    <svg class="head-hamburger-icon">
+      <use href="./img/symbol-defs.svg#icon-burger"></use>
+    </svg>
+  </div>
+  <div class="head-cross-button" id="head-cross-but">
+    <svg class="head-cross-icon">
+      <use href="./img/symbol-defs.svg#icon-cross"></use>
+    </svg>
+  </div>
+
+  <!-- //SIDEBAR -->
+
+  <div class="header-side-window">
+    <div class="header-field">
+      <div class="header-nav-position">
+        <div class="head-nav-sidebar-fav">Home</div>
+        <div class="head-nav-sidebar-home">Favorites</div>
+      </div>
+      <label class="head-checkbox-ios" id="checkbox">
+        <input type="checkbox" />
+        <span class="checkbox-ios-switch"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- //ORDER MODAL  -->
+
+  <div class="modal-fenster-order">
+    <svg class="modal-cross-icon" id="modal-cross-closer">
+      <use href="./img/symbol-defs.svg#icon-cross"></use>
+    </svg>
+    <h2 class="modal-name-window">ORDER NOW</h2>
+    <form class="modal-form-position" id="modal-forms-js">
+      <div class="form-group">
+        <label class="mod-name-form" for="fname">Name</label>
+        <input class="mod-input-design" type="text" id="modname" name="name" />
+      </div>
+      <div class="form-group">
+        <label class="mod-name-form" for="lname">Phone number</label>
+        <input
+          class="mod-input-design"
+          type="number"
+          id="modpnumb"
+          name="mobile"
+        />
+      </div>
+      <div class="form-group">
+        <label class="mod-name-form" for="lname">Email</label>
+        <input
+          class="mod-input-design"
+          type="email"
+          id="modemail"
+          name="email"
+        />
+      </div>
+      <div class="form-group form-group-last">
+        <label class="mod-name-form" for="lname">Comment</label>
+
+        <textarea
+          class="mod-input-design mod-input-design-comment"
+          id="modcomm"
+          name="comment"
+          rows="4"
+        ></textarea>
+      </div>
+      <input class="mod-button-design" type="submit" value="Send" />
+    </form>
+  </div>
+</div>
