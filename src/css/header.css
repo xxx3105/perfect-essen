@@ -57,6 +57,7 @@
   cursor: pointer;
   margin-right: 7px;
 }
+
 .head-hamburger-icon {
   fill: black;
   width: 32px;
@@ -64,6 +65,11 @@
   stroke: var(--main-color);
   margin-left: 7px;
   cursor: pointer;
+}
+
+.head-order-basket:hover,
+.head-hamburger-icon:hover {
+  stroke: #9bb537;
 }
 
 .head-cross-icon {

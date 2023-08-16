@@ -44,6 +44,12 @@
   border: none;
 }
 
+.cat-button-fav:hover {
+  background-color: #9bb537;
+  color: #f8f8f8;
+  border: none;
+}
+
 .cat-fav-list {
   display: flex;
 

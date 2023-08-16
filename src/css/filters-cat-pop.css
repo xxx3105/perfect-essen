@@ -26,6 +26,12 @@
   border: none;
 }
 
+.cat-button:hover {
+  background-color: #9bb537;
+  color: #f8f8f8;
+  border: none;
+}
+
 .categories-container {
   width: 326px;
   height: 198px;

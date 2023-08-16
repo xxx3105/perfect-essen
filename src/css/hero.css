@@ -39,6 +39,11 @@
   margin-top: 28px;
 }
 
+.hero-order-now:hover {
+  background-color: #9bb537;
+  color: var(--boody-bg);
+}
+
 /* CARDS/ */
 
 .slider-food-descr {
