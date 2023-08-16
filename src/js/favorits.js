@@ -170,7 +170,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   1
                 )}" id="first-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -178,7 +178,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   2
                 )}" id="second-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -186,7 +186,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   3
                 )}" id="third-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -194,7 +194,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   4
                 )}" id="fourth-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                   
                 </svg>
               </li>
@@ -203,7 +203,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   5
                 )}" id="fift-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
             </ul>
