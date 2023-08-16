@@ -208,28 +208,28 @@ ${f.map(L=>`<li class="recipe-tag-list-elem">#${L}</li>`).join("")}
               <li>
  
                 <svg class="star-icon-first ${g(d,1)}" id="first-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
                 <svg class="star-icon-second ${g(d,2)}" id="second-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
                 <svg class="star-icon-third ${g(d,3)}" id="third-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
                 <svg class="star-icon-fourth ${g(d,4)}" id="fourth-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                   
                 </svg>
               </li>
               <li>
                 <svg class="star-icon-fift ${g(d,5)}" id="fift-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="../img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
             </ul>
