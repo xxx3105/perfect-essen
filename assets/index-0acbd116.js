@@ -206,6 +206,7 @@ ${f.map(L=>`<li class="recipe-tag-list-elem">#${L}</li>`).join("")}
           <div>
             <ul class="kart-list-rating">
               <li>
+ 
                 <svg class="star-icon-first ${g(d,1)}" id="first-star">
                   <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
@@ -223,6 +224,7 @@ ${f.map(L=>`<li class="recipe-tag-list-elem">#${L}</li>`).join("")}
               <li>
                 <svg class="star-icon-fourth ${g(d,4)}" id="fourth-star">
                   <use href="./img/symbol-defs.svg#icon-star"></use>
+                  
                 </svg>
               </li>
               <li>
