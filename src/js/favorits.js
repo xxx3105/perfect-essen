@@ -165,6 +165,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
           <div>
             <ul class="kart-list-rating">
               <li>
+ 
                 <svg class="star-icon-first ${getRatingColorClass(
                   keyInformationRat,
                   1
@@ -194,6 +195,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   4
                 )}" id="fourth-star">
                   <use href="./img/symbol-defs.svg#icon-star"></use>
+                  
                 </svg>
               </li>
               <li>
