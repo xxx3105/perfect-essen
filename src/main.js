@@ -10,6 +10,7 @@ import './js/recipe-kart';
 import './js/favorits';
 
 //Замена ссылок на имж
+//<!-- /////way for Vite bag with img links for non-created objects -->
 
 const useElement = document.querySelector('#svg-way use');
 export const hrefValue = useElement.getAttribute('href');

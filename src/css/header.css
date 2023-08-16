@@ -31,6 +31,13 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.125;
+  cursor: pointer;
+}
+
+.head-logo-text-sty:hover {
+  /* //border-radius: 50%; Для создания круглой формы */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #c3c3c3;
 }
 
 .head-logo {

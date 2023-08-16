@@ -23,7 +23,39 @@ const favorExitBut = document.querySelector('.head-nav-sidebar-fav');
 const categFavorShow = document.querySelector('.category-fav');
 const categStandHide = document.querySelector('.categor-standart');
 
-favorEntreBut.addEventListener('click', favorTransformer);
+const nothingFound = document.querySelector('.nothing-was-found');
+
+const backToMain = document.querySelector('.head-logo-text-sty');
+
+///back to margin:
+
+backToMain.addEventListener('click', () => {
+  favorDetransformer();
+});
+
+///contents checking
+
+favorEntreBut.addEventListener('click', contetnInFavorChecker);
+
+function contetnInFavorChecker() {
+  const favCont = Object.keys(localStorage);
+
+  if (favCont.length === 0) {
+    nothingFound.style.display = 'block';
+
+    hideHero.classList.add('hidden-favorites');
+    hidePop.classList.add('hidden-favorites');
+    hideFilter.classList.add('hidden-favorites');
+    hideReset.classList.add('hidden-favorites');
+
+    categStandHide.style.display = 'none';
+    hideKart.style.display = 'none';
+  } else {
+    favorTransformer();
+  }
+}
+
+///Transformation starting
 
 function favorTransformer() {
   hideHero.classList.add('hidden-favorites');
@@ -42,10 +74,12 @@ function favorTransformer() {
   catLinieSlider.style.marginTop = '40px';
 
   filterFoodsFav();
+  //initializeSlick();
 }
 
 favorExitBut.addEventListener('click', favorDetransformer);
 
+///detransforming
 function favorDetransformer() {
   hideHero.classList.remove('hidden-favorites');
   hidePop.classList.remove('hidden-favorites');
@@ -58,13 +92,29 @@ function favorDetransformer() {
   showKartFav.style.display = 'none';
   heroImgFavShow.style.display = 'none';
   categFavorShow.style.display = 'none';
+  nothingFound.style.display = 'none';
 
   imHeroFavPos.style.marginBottom = '85px';
   catLinieSlider.style.marginTop = '80px';
   filterFoods();
 }
 
-//фильтрация избранного///
+//Category button mechanismus
+
+function buttonChangerFavSlider() {
+  const buttonOfCatSlider = document.querySelectorAll('.cat-button-fav');
+
+  buttonOfCatSlider.forEach(button => {
+    button.addEventListener('click', () => {
+      buttonOfCatSlider.forEach(otherButton => {
+        otherButton.classList.remove('cat-button-fav-active');
+      });
+      button.classList.add('cat-button-fav-active');
+    });
+  });
+}
+
+//filter of favorits///
 
 ////////////////////////////////////////////
 function filterFoodsFav() {
@@ -75,6 +125,12 @@ function filterFoodsFav() {
 
   // Создаем массив для хранения информации о рецептах
   const recipePromises = favoriteIds.map(async recipeId => {
+    // Проверяем длину айди
+    if (recipeId.length !== 24) {
+      console.warn(`Некорректный айди: ${recipeId}`);
+      return null;
+    }
+
     try {
       const recipeInfo = await tastyTreats.getId(recipeId);
       return recipeInfo;
@@ -86,7 +142,6 @@ function filterFoodsFav() {
       return null;
     }
   });
-
   // Используем Promise.all для ожидания всех запросов и получения результатов
   Promise.all(recipePromises)
     .then(recipeInfos => {
@@ -274,8 +329,13 @@ function applyCategoryFilter(selectedCategory, recipes) {
 function filterCatFav() {
   const favoriteIds = Object.keys(localStorage);
 
-  // Создаем массив для хранения информации о рецептах
   const recipePromises = favoriteIds.map(async recipeId => {
+    // Проверяем длину айди
+    if (recipeId.length !== 24) {
+      console.warn(`Некорректный айди: ${recipeId}`);
+      return null;
+    }
+
     try {
       const recipeInfo = await tastyTreats.getId(recipeId);
       return recipeInfo;
@@ -320,6 +380,11 @@ function filterCatFav() {
 }
 filterCatFav();
 
+//Button color machanismus
+setTimeout(function () {
+  buttonChangerFavSlider();
+}, 500);
+
 //SLIDER
 
 $(document).ready(function () {
@@ -334,3 +399,22 @@ $(document).ready(function () {
     });
   }, 1000); // 1000 миллисекунд (1 секунда)
 });
+
+// function initializeSlick() {
+//   $('.cat-fav-list').slick({
+//     infinite: true,
+//     speed: 600,
+//     slidesToShow: 1,
+//     swipeToSlide: true,
+//     variableWidth: true,
+//     slidesToScroll: 3,
+//   });
+// }
+
+// $(document).ready(function () {
+//   initializeSlick();
+// });
+
+// setTimeout(function () {
+//   initializeSlick();
+// }, 2000);

@@ -58,3 +58,24 @@
 }
 
 /* //////////////////////// */
+
+/* Nothing was found */
+
+.nothing-was-found {
+  display: none;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.nothing-was-found-shapka {
+  fill: green;
+  width: 68px;
+  height: 58px;
+  margin-left: 135px;
+  margin-bottom: 24px;
+}
+
+.nothing-was-found-text {
+  width: 335px;
+  height: 72px;
+}
