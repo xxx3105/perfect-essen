@@ -6,6 +6,8 @@ import { filterAndLogData } from './recipe-kart.js';
 
 import { hrefValue } from '../main.js';
 
+import { filterCatFav } from '../js/favorits.js';
+
 //переменные
 
 const listTime = document.getElementById('time');
@@ -386,6 +388,7 @@ export function filterFoods() {
 
         buttonsFavoritesAdd.forEach(function (heartFavAdd) {
           //проверка нахожд избр в лок
+
           const keyInformation = heartFavAdd.getAttribute(
             'data-key-information'
           );
@@ -403,6 +406,7 @@ export function filterFoods() {
               localStorage.removeItem(keyInformation);
             } else {
               localStorage.setItem(keyInformation, keyInformation);
+              //filterCatFav();
             }
 
             // filterAndLogData(keyInformation, foods);

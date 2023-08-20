@@ -30,7 +30,7 @@ function sideBarOpen() {
   checkBox.style.display = 'inline';
 }
 
-function sideBarClosed() {
+export function sideBarClosed() {
   headerWindow.classList.toggle('heade-width-max');
   headerWindowField.classList.toggle('heade-field-displ');
   headBurgerClosedBtn.style.display = 'none';

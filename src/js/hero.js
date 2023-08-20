@@ -96,5 +96,9 @@ function sliderCardCreator(
     spaceBetween: 20,
     slidesPerView: 0.8,
     grabCursor: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
 }

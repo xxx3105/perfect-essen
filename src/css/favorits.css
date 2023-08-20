@@ -18,6 +18,7 @@
   display: none;
 }
 
+/* //CATEGORY */
 .category-fav {
   margin-top: 40px;
   display: none;
@@ -40,13 +41,13 @@
 
 .cat-button-fav-active {
   background-color: #9bb537;
-  color: #f8f8f8;
+  color: var(--boody-bg);
   border: none;
 }
 
 .cat-button-fav:hover {
   background-color: #9bb537;
-  color: #f8f8f8;
+  color: var(--boody-bg);
   border: none;
 }
 
@@ -85,3 +86,25 @@
   width: 335px;
   height: 72px;
 }
+
+/* slider */
+
+.slick-cloned {
+  display: none !important;
+}
+
+/* /////// */
+.cat-fav-list {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  cursor: grab; /* Указатель "grab" при наведении для показа возможности перетаскивания */
+}
+
+/* .cat-button-fav {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  transition: background-color 0.3s;
+} */

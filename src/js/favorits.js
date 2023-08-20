@@ -3,8 +3,7 @@ import apiTastyTreats from './api.js';
 const tastyTreats = new apiTastyTreats();
 
 import { filterFoods } from './filters-cat-pop.js';
-
-import { hrefValue } from '../main.js';
+import { sideBarClosed } from './header.js';
 
 const hideHero = document.getElementById('herocont');
 const hidePop = document.getElementById('popular-hidden');
@@ -24,38 +23,17 @@ const categFavorShow = document.querySelector('.category-fav');
 const categStandHide = document.querySelector('.categor-standart');
 
 const nothingFound = document.querySelector('.nothing-was-found');
-
 const backToMain = document.querySelector('.head-logo-text-sty');
 
-///back to margin:
+const fieldOfCarFavor = document.querySelector('.cat-fav-list');
+
+///back to main:
 
 backToMain.addEventListener('click', () => {
   favorDetransformer();
 });
 
-///contents checking
-
-favorEntreBut.addEventListener('click', contetnInFavorChecker);
-
-function contetnInFavorChecker() {
-  const favCont = Object.keys(localStorage);
-
-  if (favCont.length === 0) {
-    nothingFound.style.display = 'block';
-
-    hideHero.classList.add('hidden-favorites');
-    hidePop.classList.add('hidden-favorites');
-    hideFilter.classList.add('hidden-favorites');
-    hideReset.classList.add('hidden-favorites');
-
-    categStandHide.style.display = 'none';
-    hideKart.style.display = 'none';
-  } else {
-    favorTransformer();
-  }
-}
-
-///Transformation starting
+favorEntreBut.addEventListener('click', favorTransformer);
 
 function favorTransformer() {
   hideHero.classList.add('hidden-favorites');
@@ -72,14 +50,14 @@ function favorTransformer() {
 
   imHeroFavPos.style.marginBottom = '44.5px';
   catLinieSlider.style.marginTop = '40px';
-
+  filterCatFav();
+  lokalChecker();
   filterFoodsFav();
-  //initializeSlick();
+  sideBarClosed();
 }
 
 favorExitBut.addEventListener('click', favorDetransformer);
 
-///detransforming
 function favorDetransformer() {
   hideHero.classList.remove('hidden-favorites');
   hidePop.classList.remove('hidden-favorites');
@@ -99,35 +77,53 @@ function favorDetransformer() {
   filterFoods();
 }
 
-//Category button mechanismus
+//Функция проверки наличия в локале рецептов и вывода изображения ничего не найдено
 
-function buttonChangerFavSlider() {
-  const buttonOfCatSlider = document.querySelectorAll('.cat-button-fav');
-
-  buttonOfCatSlider.forEach(button => {
-    button.addEventListener('click', () => {
-      buttonOfCatSlider.forEach(otherButton => {
-        otherButton.classList.remove('cat-button-fav-active');
-      });
-      button.classList.add('cat-button-fav-active');
-    });
-  });
+function lokalChecker() {
+  const favoriteIds = Object.keys(localStorage);
+  if (favoriteIds.length === 0 || !favoriteIds.some(id => id.length === 24)) {
+    heroImgFavShow.style.display = 'none';
+    categFavorShow.style.display = 'none';
+    nothingFound.style.display = 'block';
+    fieldOfCarFavor.innerHTML = '';
+  }
 }
 
-//filter of favorits///
+///Функция улавливания значений нажатий на кнопки категорий
+
+function handleCategoryButtonClick(event) {
+  const keyInformationCat = event.target.getAttribute('data-category');
+  // Здесь вы можете использовать значение keyInformationCat как вам нужно
+  console.log('Выбрана категория:', keyInformationCat);
+
+  filterFoodsFav(keyInformationCat);
+}
+
+// Получаем контейнер, содержащий все кнопки категорий
+const displayCatFav = document.querySelector('.cat-fav-list');
+
+displayCatFav.removeEventListener('click', handleCategoryButtonClick);
+
+// Добавляем обработчик клика на контейнер, используем делегирование событий
+displayCatFav.addEventListener('click', event => {
+  // Проверяем, была ли нажата кнопка категории
+  if (event.target.classList.contains('cat-button-fav')) {
+    handleCategoryButtonClick(event);
+  }
+});
+
+//Глобальная фильтрация избранного для вывода карточек///
 
 ////////////////////////////////////////////
-function filterFoodsFav() {
+
+export async function filterFoodsFav(selectedCategory) {
+  const categoryButtons = document.querySelectorAll('.cat-button-fav');
   const favoriteIds = Object.keys(localStorage);
 
-  const displayPlatzFav = document.getElementById('kart-platz-fav');
-  const categoryButtons = document.querySelectorAll('.cat-button-fav');
+  console.log('Выбрана категория filterFoodsFav:', selectedCategory);
 
-  // Создаем массив для хранения информации о рецептах
   const recipePromises = favoriteIds.map(async recipeId => {
-    // Проверяем длину айди
     if (recipeId.length !== 24) {
-      console.warn(`Некорректный айди: ${recipeId}`);
       return null;
     }
 
@@ -142,16 +138,23 @@ function filterFoodsFav() {
       return null;
     }
   });
+
   // Используем Promise.all для ожидания всех запросов и получения результатов
   Promise.all(recipePromises)
     .then(recipeInfos => {
-      console.log(recipeInfos); // Выводим результаты всех запросов
-
       const addedCategories = new Set(); // Для отслеживания добавленных категорий
 
       const filteredRecipeInfos = recipeInfos.filter(
         recipeInfo => recipeInfo !== undefined && recipeInfo !== null
       );
+      // Применяем фильтр по умолчанию
+      //      applyCategoryFilter(selectedCategory, filteredRecipeInfos);
+
+      if (selectedCategory === undefined) {
+        applyCategoryFilter('All', filteredRecipeInfos);
+      } else {
+        applyCategoryFilter(selectedCategory, filteredRecipeInfos);
+      }
 
       categoryButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -159,11 +162,6 @@ function filterFoodsFav() {
           applyCategoryFilter(selectedCategory, filteredRecipeInfos);
         });
       });
-
-      //console.log('recipeInfos:', recipeInfos);
-      // console.log('filteredRecipeInfos:', filteredRecipeInfos);
-      // Применяем фильтр по умолчанию
-      applyCategoryFilter('All', filteredRecipeInfos);
     })
     .catch(error => {
       console.error('Ошибка при получении данных:', error);
@@ -171,6 +169,8 @@ function filterFoodsFav() {
 }
 
 function applyCategoryFilter(selectedCategory, recipes) {
+  console.log(`ffdfddf:${selectedCategory}`);
+
   const displayPlatzFav = document.getElementById('kart-platz-fav');
   displayPlatzFav.innerHTML = '';
 
@@ -178,6 +178,8 @@ function applyCategoryFilter(selectedCategory, recipes) {
     selectedCategory === 'All'
       ? recipes
       : recipes.filter(recipeInfo => recipeInfo.category === selectedCategory);
+
+  //console.log(filteredRecipes);
 
   for (let i = 0; i < filteredRecipes.length; i++) {
     const recipeInfo = filteredRecipes[i];
@@ -201,7 +203,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
       // Остальной код по созданию карточек на основе recipeInfo
       const receiptKarten = `
  
-           <div class="kard-prod-contatiner">
+           <div class="kard-prod-contatiner"  data-key-information-cat="${keyInformationCat}">
       <img
         class="kart-bild"
         src="${keyInformationThumb}"
@@ -222,12 +224,11 @@ function applyCategoryFilter(selectedCategory, recipes) {
           <div>
             <ul class="kart-list-rating">
               <li>
- 
                 <svg class="star-icon-first ${getRatingColorClass(
                   keyInformationRat,
                   1
                 )}" id="first-star">
-                  <use href="${hrefValue}#icon-star"></use>
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -235,7 +236,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   2
                 )}" id="second-star">
-                 <use href="${hrefValue}#icon-star"></use>
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -243,7 +244,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   3
                 )}" id="third-star">
-                <use href="${hrefValue}#icon-star"></use>
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -251,8 +252,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   4
                 )}" id="fourth-star">
-               <use href="${hrefValue}#icon-star"></use>
-                  
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -260,7 +260,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   5
                 )}" id="fift-star">
-                <use href="${hrefValue}#icon-star"></use>
+                  <use href="./img/symbol-defs.svg#icon-star"></use>
                 </svg>
               </li>
             </ul>
@@ -290,7 +290,6 @@ function applyCategoryFilter(selectedCategory, recipes) {
           const keyInformation = button.getAttribute('data-key-information');
 
           filterAndLogData(keyInformation, foods);
-          console.log('Значение data-key-information:', keyInformation);
         });
       });
 
@@ -312,30 +311,28 @@ function applyCategoryFilter(selectedCategory, recipes) {
 
           if (!heartFavAdd.classList.contains('heart-icon-toggle')) {
             localStorage.removeItem(keyInformation);
+            lokalChecker();
             filterFoodsFav();
+            filterCatFav();
+
+            removeUnusedCategories();
           } else {
             localStorage.setItem(keyInformation, keyInformation);
           }
-
-          // filterAndLogData(keyInformation, foods);
-          //console.log('Значение data-key-information:', keyInformation);
         });
       });
     }
   }
 }
-//Создание категорий из фильтр объектов
 
-function filterCatFav() {
+/////функция фильтрации Категорий///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export async function filterCatFav() {
   const favoriteIds = Object.keys(localStorage);
-
-  const recipePromises = favoriteIds.map(async recipeId => {
-    // Проверяем длину айди
+  const recipePromisesTwo = favoriteIds.map(async recipeId => {
     if (recipeId.length !== 24) {
-      console.warn(`Некорректный айди: ${recipeId}`);
       return null;
     }
-
     try {
       const recipeInfo = await tastyTreats.getId(recipeId);
       return recipeInfo;
@@ -348,73 +345,157 @@ function filterCatFav() {
     }
   });
 
-  console.log(recipePromises);
-  Promise.all(recipePromises)
-    .then(recipeInfos => {
-      // recipeInfos - массив с информацией о рецептах
+  try {
+    const recipeInfos = await Promise.all(recipePromisesTwo);
 
-      const displayCatFav = document.querySelector('.cat-fav-list');
-      const addedCategories = new Set(); // Для отслеживания добавленных категорий
+    const displayCatFav = document.querySelector('.cat-fav-list');
+    const addedCategories = new Set();
 
-      //console.log(recipeInfos);
+    let localCategories = ''; // Создаем пустую строку для хранения названий категорий
 
-      recipeInfos.forEach(recipeInfo => {
+    // Очищаем содержимое контейнера перед добавлением новых кнопок
+    displayCatFav.innerHTML =
+      '<div><button class="cat-button-fav" data-category="All">All categories </button> </div>';
+
+    recipeInfos.forEach(recipeInfo => {
+      if (recipeInfo !== null) {
         const keyInformationCat = recipeInfo.category;
 
         if (!addedCategories.has(keyInformationCat)) {
+          const itemCatFav = `
+            <div class="${keyInformationCat}"><button class="cat-button-fav" data-category="${keyInformationCat}">${keyInformationCat}</button></div>
+          `;
+          displayCatFav.insertAdjacentHTML('beforeend', itemCatFav);
           addedCategories.add(keyInformationCat);
 
-          // Остальной код по созданию карточек на основе recipeInfo
-          const itemCatFav = `
-          <div><button class="cat-button-fav" data-category="${keyInformationCat}" >${keyInformationCat}</button></div> 
-           `;
-
-          displayCatFav.insertAdjacentHTML('beforeend', itemCatFav);
-          console.log(itemCatFav);
+          // Добавляем название категории к строке локальных категорий
+          if (localCategories) {
+            localCategories += `,${keyInformationCat}`;
+          } else {
+            localCategories = keyInformationCat;
+          }
         }
-      });
-    })
-    .catch(error => {
-      console.error('Ошибка при получении данных:', error);
+      }
     });
+
+    // Сохраняем строку с названиями категорий в локальное хранилище
+    localStorage.setItem('categories', localCategories);
+    removeUnusedCategories();
+
+    buttonChangerFavSlider();
+  } catch (error) {
+    console.error('Ошибка при получении данных:', error);
+  }
 }
-filterCatFav();
 
-//Button color machanismus
-setTimeout(function () {
-  buttonChangerFavSlider();
-}, 500);
+// Вызов функции filterCatFav()
+//filterCatFav();
 
-//SLIDER
+//     //SLIDER INITIALISATION
 
-$(document).ready(function () {
-  setTimeout(function () {
-    $('.cat-fav-list').slick({
-      infinite: true,
-      speed: 600,
-      slidesToShow: 1,
-      swipeToSlide: true,
-      variableWidth: true,
-      slidesToScroll: 3,
-    });
-  }, 1000); // 1000 миллисекунд (1 секунда)
-});
-
-// function initializeSlick() {
-//   $('.cat-fav-list').slick({
-//     infinite: true,
-//     speed: 600,
-//     slidesToShow: 1,
-//     swipeToSlide: true,
-//     variableWidth: true,
-//     slidesToScroll: 3,
-//   });
+//     // $(document).ready(function () {
+//     //   setTimeout(function () {
+//     //     $('.cat-fav-list').slick({
+//     //       infinite: true,
+//     //       speed: 600,
+//     //       slidesToShow: 1,
+//     //       swipeToSlide: true,
+//     //       variableWidth: true,
+//     //       slidesToScroll: 3,
+//     //     });
+//     //   }, 2000); // 1000 миллисекунд (1 секунда)
+//     // });
+//   } catch (error) {
+//     console.error('Ошибка при получении данных:', error);
+//   }
 // }
 
 // $(document).ready(function () {
-//   initializeSlick();
+//   setTimeout(function () {
+//     $('.cat-fav-list').slick({
+//       infinite: true,
+//       speed: 600,
+//       slidesToShow: 1,
+//       swipeToSlide: true,
+//       variableWidth: true,
+//       slidesToScroll: 3,
+//     });
+//   }, 2000); // 1000 миллисекунд (1 секунда)
 // });
 
-// setTimeout(function () {
-//   initializeSlick();
-// }, 2000);
+//////////////
+
+///SLIDER CAT FAV MENU
+
+const draggableContainer = document.getElementById('draggable-container');
+let isDragging = false;
+let startX;
+
+draggableContainer.addEventListener('mousedown', event => {
+  isDragging = true;
+  startX = event.clientX;
+  draggableContainer.style.cursor = 'grabbing'; // Меняем указатель на "grabbing" при начале перетаскивания
+});
+
+document.addEventListener('mousemove', event => {
+  if (!isDragging) return;
+  const deltaX = event.clientX - startX;
+  draggableContainer.scrollLeft -= deltaX; // Прокручиваем контейнер по горизонтали на основе смещения мыши
+  startX = event.clientX;
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  draggableContainer.style.cursor = 'grab'; // Восстанавливаем указатель "grab" после окончания перетаскивания
+});
+
+//Category button mechanismus цвет
+
+function buttonChangerFavSlider() {
+  const buttonOfCatSlider = document.querySelectorAll('.cat-button-fav');
+
+  buttonOfCatSlider.forEach(button => {
+    button.addEventListener('click', () => {
+      // Убираем активный класс у всех кнопок
+      buttonOfCatSlider.forEach(otherButton => {
+        otherButton.classList.remove('cat-button-fav-active');
+      });
+
+      // Тогглируем активный класс у выбранной кнопки
+      button.classList.toggle('cat-button-fav-active');
+    });
+  });
+}
+
+buttonChangerFavSlider();
+
+//удаление отсутствующих категорий из списка
+
+function removeUnusedCategories() {
+  const localCategories = localStorage.getItem('categories'); // Получаем значение из локального хранилища
+
+  const displayCatFav = document.querySelector('.cat-fav-list');
+  const categoryButtons = displayCatFav.querySelectorAll('.cat-button-fav');
+  const recipeCards = document.querySelectorAll('.kard-prod-contatiner');
+
+  categoryButtons.forEach(button => {
+    const keyInformationCat = button.getAttribute('data-category');
+
+    // Если кнопка не имеет атрибут data-category="All"
+    if (keyInformationCat !== 'All') {
+      const hasRecipesWithCategory = Array.from(recipeCards).some(
+        card =>
+          card.getAttribute('data-key-information-cat') === keyInformationCat
+      );
+
+      // Если нет рецептов с этой категорией и она отсутствует в локале, удаляем див
+      if (
+        !hasRecipesWithCategory &&
+        !localCategories.includes(keyInformationCat)
+      ) {
+        const categoryDiv = button.parentElement;
+        categoryDiv.remove();
+      }
+    }
+  });
+}

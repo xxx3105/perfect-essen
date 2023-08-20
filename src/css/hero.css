@@ -76,6 +76,12 @@
   overflow: hidden;
 }
 
+:root {
+  --swiper-navigation-size: 30px !important;
+
+  --swiper-theme-color: white !important;
+}
+
 .swiper {
   width: 335px;
   height: 302px;
