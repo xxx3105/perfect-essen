@@ -15,6 +15,7 @@ import { paginationHandler } from '../js/pagination.js';
 const listTime = document.getElementById('time');
 const listArea = document.getElementById('area');
 const listIngr = document.getElementById('ingr');
+const pagMenu = document.querySelector('.pagination-control');
 
 let recipeQuantForPag = 0;
 let paginationHandlerCalled = false;
@@ -59,6 +60,7 @@ tastyTreats
       element.addEventListener('click', () => {
         greenTextListCat.forEach(el => el.classList.remove('cat-option-act'));
         element.classList.add('cat-option-act');
+        buttonAllCat.classList.remove('cat-button-active');
       });
     });
   })
@@ -235,7 +237,7 @@ function resetFilters() {
 
 ///пряталка пагинации
 function paginationIndicator(totalPages) {
-  const pagMenu = document.querySelector('.pagination-control');
+  //  const pagMenu = document.querySelector('.pagination-control');
   //const pagMenuTwo = document.querySelector('.pagination-list');
   const totalPagesNumber = parseInt(totalPages);
 
@@ -487,6 +489,7 @@ function toggleNotFound(show) {
   const notFoundContainer = document.querySelector('.filt-not-found');
   if (show) {
     notFoundContainer.style.display = 'block';
+    pagMenu.style.display = 'none';
   } else {
     notFoundContainer.style.display = 'none';
   }

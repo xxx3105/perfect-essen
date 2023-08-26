@@ -32,6 +32,8 @@ const paginationIndikatorGenMenuHider = document.querySelector(
   '.pagination-control'
 );
 
+const filterMainNotFoundHide = document.querySelector('.filt-not-found');
+
 ///back to main:
 
 backToMain.addEventListener('click', () => {
@@ -53,6 +55,7 @@ function favorTransformer() {
   categStandHide.style.display = 'none';
   hideKart.style.display = 'none';
   paginationIndikatorGenMenuHider.style.display = 'none';
+  filterMainNotFoundHide.style.display = 'none';
 
   imHeroFavPos.style.marginBottom = '44.5px';
   catLinieSlider.style.marginTop = '40px';
