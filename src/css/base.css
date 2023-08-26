@@ -1,13 +1,36 @@
 :root {
-  --white-color: #ffffff;
-  --main-color: #050505;
-  --accent-color: #9bb537;
-  --star-color: #eea10c;
-  --boody-bg: #f8f8f8;
+  --white-color: rgb(255, 255, 255);
+
+  --accent-color: rgb(155, 181, 55);
+  --star-color: rgb(238, 161, 12);
+  --boody-bg: rgb(248, 248, 248);
   --description-font-color: rgba(5, 5, 5, 0.8);
   --trans: 250ms linear;
-  --dark-boody-bg: #161616;
+  --dark-boody-bg: rgb(22, 22, 22);
   --dark-description-font-color: rgba(255, 255, 255, 0.8);
+
+  --border-color: rgba(5, 5, 5, 0.2);
+  --font-color: rgba(5, 5, 5, 0.5);
+  --spec-unaktstar-col: rgba(0, 0, 0, 0.15);
+  --spec-box-shad: rgba(0, 0, 0, 0.3);
+  --pag-unakt: rgba(154, 180, 55, 0.314);
+  --pag-text-unakt: rgba(248, 248, 248, 0.5);
+  --spinner-special: rgba(0, 0, 0, 0);
+  --backdrop: rgba(0, 0, 0, 0.5);
+
+  --box-shad: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  --trans-speed: width 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+
+  --main-color: rgb(5, 5, 5);
+  --dark-th-color-descrpop: rgba(5, 5, 5, 0.8);
+  --dark-th-color-bord: rgba(5, 5, 5, 0.2);
+  --dark-th-color-categ: rgba(5, 5, 5, 0.5);
+  --dark-th-color: rgb(5, 5, 5);
+  --dark-th-color-hearts: rgba(255, 255, 255, 0.7);
+  --dark-kart-name: rgb(255, 255, 255, 1);
+  --dark-th-color-descrkart: rgba(255, 255, 255, 0.8);
+  --dark-th-kart-grad: rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0);
 }
 
 body {

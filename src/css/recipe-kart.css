@@ -5,12 +5,12 @@
   height: auto;
   border-radius: 15px;
   background-color: var(--boody-bg);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shad);
   position: absolute;
   z-index: 7;
   top: auto;
   left: auto;
+  border: 1px solid var(--dark-th-color-bord);
 }
 
 .receipe-video {
@@ -23,7 +23,7 @@
 .receipe-kart-сross {
   width: 20px;
   height: 20px;
-  stroke: black;
+  stroke: var(--main-color);
   cursor: pointer;
   float: right;
   margin: 14px 14px 0 0;
@@ -38,6 +38,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.33;
+  color: var(--main-color);
 }
 
 .receipe-rating-line {
@@ -51,7 +52,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.285;
-  color: #05050580;
+  color: var(--dark-th-color-categ);
 }
 
 .receipe-number-rait {
@@ -66,7 +67,7 @@
 .receipe-ingr-list-element {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #0505051a;
+  border-bottom: 1px solid var(--dark-th-color-bord);
   margin-bottom: 14px;
   padding-bottom: 8px;
 }
@@ -75,13 +76,13 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2857;
-  color: #050505;
+  color: var(--main-color);
 }
 .receipe-ingr-quantity {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2857;
-  color: #05050580;
+  color: var(--dark-th-color-categ);
 }
 
 .recipe-tag-list {
@@ -95,9 +96,10 @@
 
 .recipe-tag-list-elem {
   height: auto;
-  border: 1px solid #05050533;
+  border: 1px solid var(--dark-th-color-bord);
   border-radius: 35px;
   padding: 8px 16px;
+  color: var(--main-color);
 
   font-size: 12px;
   font-weight: 500;
@@ -108,7 +110,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2857;
-  color: #050505cc;
+  color: var(--dark-th-color-descrkart);
 }
 
 .recipe-button-block {
@@ -120,9 +122,9 @@
 
 .recipe-favor-button {
   border-radius: 15px;
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   border-style: none;
-  color: var(--boody-bg);
+  color: var(--white-color);
   padding: 12px 24px;
   font-size: 14px;
   font-weight: 500;
@@ -134,8 +136,8 @@
   border-radius: 15px;
   background-color: var(--boody-bg);
   border-style: none;
-  border: 1px solid #9bb537;
-  color: #050505;
+  border: 1px solid var(--accent-color);
+  color: var(--main-color);
 
   padding: 12px 20px;
   font-size: 14px;
@@ -149,20 +151,20 @@
   height: 216px;
   width: 335px;
   border-radius: 15px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shad);
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--boody-bg);
+  border: 1px solid var(--dark-th-color-bord);
 
   z-index: 29;
   display: none;
 }
 
 .star-icon {
-  fill: #0505052e;
+  fill: var(--border-color);
   width: 24px;
   gap: 2px;
   height: 24px;
@@ -173,8 +175,8 @@
 }
 
 .star-icon:hover {
-  fill: #eea10c;
-  stroke: #eea10c;
+  fill: var(--star-color);
+  stroke: var(--star-color);
 }
 
 .rating-name {
@@ -183,6 +185,7 @@
   line-height: 1.2857;
   margin-left: 20px;
   padding-top: 20px;
+  color: var(--main-color);
 }
 
 .rating-number {
@@ -191,6 +194,7 @@
   line-height: 1.5;
   margin-left: 20px;
   padding-right: 8px;
+  color: var(--main-color);
 }
 
 .kart-list-rating-dialog {
@@ -205,13 +209,13 @@
   margin-left: 20px;
   border-radius: 15px;
   border-style: none;
-  border: 1px solid #05050533;
+  border: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2857;
   padding-left: 18px;
   margin-bottom: 14px;
-  color: #05050563;
+  color: var(--font-color);
   padding-top: 12px;
 }
 
@@ -222,18 +226,18 @@
   margin-left: 20px;
   border-radius: 15px;
   border-style: none;
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2857;
   margin-bottom: 14px;
-  color: var(--boody-bg);
+  color: var(--white-color);
 }
 
 .rating-kart-сross {
   width: 20px;
   height: 20px;
-  stroke: black;
+  stroke: var(--main-color);
   cursor: pointer;
   float: right;
   margin: 14px 14px 0 0;

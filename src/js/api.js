@@ -70,17 +70,6 @@ export default class apiTastyTreats {
       });
   }
 
-  /////////////////////////////////////
-  // getDetailInformationParam(area, ingredients, time) {
-  //   return fetch(
-  //     `${BASE_URL}/recipes?category=&page=${this.page}&limit=${this.limit}&time=${time}&area=${area}&ingredient=${ingredients}`
-  //   )
-  //     .then(response => response.json())
-  //     .catch(error => {
-  //       console.log(`Error in getDetailInformationParam!`);
-  //     });
-  // }
-
   getPopularRecipers() {
     return fetch(`${BASE_URL}/recipes/popular`)
       .then(response => response.json())
@@ -182,12 +171,13 @@ export default class apiTastyTreats {
 
 const tastyTreatsApi = new apiTastyTreats();
 
-// tastyTreatsApi.getRecipes()
-//     .then(recipes => { console.log(recipes); });
+// tastyTreatsApi.getRecipes().then(recipes => {
+//   console.log(recipes);
+// });
 
-tastyTreatsApi.getDetailInformation().then(detailInfo => {
-  console.log(detailInfo);
-});
+// tastyTreatsApi.getDetailInformation().then(detailInfo => {
+//   console.log(detailInfo);
+// });
 
 //page, limit, area, ingredient, time;
 

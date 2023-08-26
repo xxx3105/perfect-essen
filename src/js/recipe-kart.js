@@ -36,6 +36,11 @@ export function filterAndLogData(targetId, filtrFoodList) {
           // Корректировка ссылки ютуб
 
           function convertYouTubeLinkToEmbed(youtubeLink) {
+            if (youtubeLink === null) {
+              const embedLink = `https://www.youtube.com/embed/`;
+              return embedLink;
+            }
+
             const standardUrl = 'https://www.youtube.com/';
             const videoId = youtubeLink.split('watch?v=')[1];
 

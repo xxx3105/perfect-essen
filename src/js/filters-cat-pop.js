@@ -8,13 +8,19 @@ import { hrefValue } from '../main.js';
 
 import { filterCatFav } from '../js/favorits.js';
 
+import { paginationHandler } from '../js/pagination.js';
+
 //переменные
 
 const listTime = document.getElementById('time');
 const listArea = document.getElementById('area');
 const listIngr = document.getElementById('ingr');
 
-console.log(filterFoods);
+let recipeQuantForPag = 0;
+let paginationHandlerCalled = false;
+let previousPaginationIndicatorTotalPages = null;
+
+const inProgressIndicator = document.querySelector('.in-progress');
 
 //categories
 
@@ -63,13 +69,13 @@ tastyTreats
 //7.очернители закрытого окна
 
 listIngr.addEventListener('change', function () {
-  listIngr.style.color = 'black';
+  listIngr.style.color = 'var(--dark-th-color)';
 });
 listArea.addEventListener('change', function () {
-  listArea.style.color = 'black';
+  listArea.style.color = 'var(--dark-th-color)';
 });
 listTime.addEventListener('change', function () {
-  listTime.style.color = 'black';
+  listTime.style.color = 'var(--dark-th-color)';
 });
 
 //0 поле поиска
@@ -221,20 +227,37 @@ function resetFilters() {
     style: { color },
   } = searchFiled;
   [searchFiled, listTime, listArea, listIngr].forEach(
-    elem => (elem.style.color = `rgba(5, 5, 5, 0.5)`)
+    elem => (elem.style.color = `var(--dark-th-color-categ)`)
   );
 
   filterFoods();
 }
 
-export function filterFoods() {
+///пряталка пагинации
+function paginationIndicator(totalPages) {
+  const pagMenu = document.querySelector('.pagination-control');
+  //const pagMenuTwo = document.querySelector('.pagination-list');
+  const totalPagesNumber = parseInt(totalPages);
+
+  if (totalPagesNumber <= 1) {
+    pagMenu.style.display = 'none';
+    // pagMenuTwo.style.display = 'none';
+  } else {
+    pagMenu.style.display = 'inline';
+    // pagMenuTwo.style.display = 'inline';
+  }
+}
+
+export function filterFoods(pageOfList) {
   let choosedCategory = selectedCategory;
-  let currentPage = '1';
+  let currentPage = pageOfList || 1;
   let itemsPageLimit = '9';
   let foodArea = selectedArea;
   let ingrId = selectedIngredient;
-  let timeOptions = '';
-  //let timeOptions = selectedTime;
+  let timeOptions = selectedTime;
+
+  inProgressIndicator.style.display = 'block';
+
   tastyTreats
     .getDetailInformationParam(
       choosedCategory,
@@ -246,6 +269,35 @@ export function filterFoods() {
     )
     .then(async data => {
       const foods = data.results;
+
+      //Paginationcontrol
+
+      const paginationIndicatorPage = data.page;
+      const paginationIndicatorPerPage = data.perPage;
+      const paginationIndicatorTotalPages = data.totalPages;
+
+      inProgressIndicator.style.display = 'none';
+
+      console.log(
+        paginationIndicatorPage,
+        paginationIndicatorPerPage,
+        paginationIndicatorTotalPages,
+        data
+      );
+
+      if (
+        parseInt(paginationIndicatorTotalPages) !==
+        previousPaginationIndicatorTotalPages
+      ) {
+        previousPaginationIndicatorTotalPages = parseInt(
+          paginationIndicatorTotalPages
+        );
+
+        paginationIndicator(paginationIndicatorTotalPages);
+        paginationHandler(paginationIndicatorTotalPages);
+
+        paginationHandlerCalled = true;
+      }
 
       let filteredFoods = foods.filter(food => {
         return (
@@ -269,6 +321,13 @@ export function filterFoods() {
         );
       });
 
+      if (filteredFoods.length === 0) {
+        toggleNotFound(true); // Показать блок "Ничего не найдено"
+      } else {
+        toggleNotFound(false); // Скрыть блок "Ничего не найдено"
+        // ... (ваш существующий код)
+      }
+
       const displayPlatz = document.getElementById('karten-platz');
       displayPlatz.innerHTML = '';
 
@@ -288,7 +347,7 @@ export function filterFoods() {
         const keyInformationId = food._id;
         const keyVideo = food.youtube;
 
-        //filteredFoods = filteredFoods;
+        recipeQuantForPag++;
 
         const receiptKarten = `
 <div class="kard-prod-contatiner">
@@ -420,4 +479,15 @@ export function filterFoods() {
     });
 }
 
-filterFoods();
+filterFoods(1);
+
+//// Nothing found
+
+function toggleNotFound(show) {
+  const notFoundContainer = document.querySelector('.filt-not-found');
+  if (show) {
+    notFoundContainer.style.display = 'block';
+  } else {
+    notFoundContainer.style.display = 'none';
+  }
+}

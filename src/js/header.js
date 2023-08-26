@@ -122,3 +122,67 @@ document.addEventListener('click', function (event) {
     backdropDeactivation();
   }
 });
+
+/// DARK MODE
+
+const colorToggle = document.getElementById('colorToggle');
+const root = document.documentElement;
+
+// При загрузке страницы, проверяем, какое состояние было сохранено
+const savedColorMode = localStorage.getItem('colorMode');
+if (savedColorMode === 'dark') {
+  applyDarkMode();
+  colorToggle.checked = true;
+}
+
+colorToggle.addEventListener('change', () => {
+  if (colorToggle.checked) {
+    applyDarkMode();
+    localStorage.setItem('colorMode', 'dark'); // Сохраняем выбранное состояние
+  } else {
+    applyLightMode();
+    localStorage.setItem('colorMode', 'light'); // Сохраняем выбранное состояние
+  }
+});
+
+function applyDarkMode() {
+  root.style.setProperty('--boody-bg', 'rgba(22, 22, 22, 1)');
+  root.style.setProperty('--main-color', 'rgba(255, 255, 255, 1)');
+  root.style.setProperty('--dark-th-color', 'rgb(255, 255, 255)');
+  root.style.setProperty('--dark-th-color-categ', 'rgba(255, 255, 255, 0.5)');
+  root.style.setProperty('--dark-th-color-bord', 'rgba(255, 255, 255, 0.2)');
+  root.style.setProperty(
+    '--dark-th-color-descrpop',
+    'rgba(255, 255, 255, 0.8)'
+  );
+  root.style.setProperty('--dark-th-color-hearts', 'rgba(255, 255, 255, 0.7)');
+  root.style.setProperty('--dark-kart-name', 'rgba(255, 255, 255, 1)');
+  root.style.setProperty(
+    '--dark-th-kart-grad',
+    ' rgb(5, 5, 5, 1) , rgb(5, 5, 5)'
+  );
+  root.style.setProperty(
+    '--box-shad',
+    '0px 2px 5px rgba(255, 255, 255, 0.3), 0px 1px 3px rgba(255, 255, 255, 0.12), 0px 2px 1px rgba(255, 255, 255, 0.2)'
+  );
+}
+
+function applyLightMode() {
+  root.style.setProperty('--boody-bg', 'rgb(248, 248, 248)');
+  root.style.setProperty('--main-color', 'rgb(248, 248, 248)');
+  root.style.setProperty('--dark-th-color', 'rgb(5, 5, 5)');
+  root.style.setProperty('--dark-th-color-categ', 'rgba(5, 5, 5, 0.5)');
+  root.style.setProperty('--dark-th-color-bord', 'rgba(5, 5, 5, 0.2)');
+  root.style.setProperty('--dark-th-color-descrpop', 'rgba(5, 5, 5, 0.8)');
+  root.style.setProperty('--dark-th-color-hearts', 'rgba(255, 255, 255, 0.7)');
+  root.style.setProperty('--dark-kart-name', 'rgba(5, 5, 5, 1)');
+
+  root.style.setProperty(
+    '--dark-th-kart-grad',
+    'rgb(5, 5, 5) 0%, rgb(5, 5, 5) 60%'
+  );
+  root.style.setProperty(
+    '--box-shad',
+    '0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2)'
+  );
+}

@@ -30,25 +30,28 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: 1px solid var(--dark-th-color-bord);
   background-color: var(--boody-bg);
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--dark-th-color-categ);
   border-radius: 15px;
   cursor: pointer;
   padding: 8px 14px;
   margin: 0 15px 0 0;
+  user-select: none;
 }
 
 .cat-button-fav-active {
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   color: var(--boody-bg);
   border: none;
+  user-select: none;
 }
 
 .cat-button-fav:hover {
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   color: var(--boody-bg);
   border: none;
+  user-select: none;
 }
 
 .cat-fav-list {
@@ -62,6 +65,7 @@
 .karten-block-fav {
   display: none;
   margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 /* //////////////////////// */
@@ -75,7 +79,7 @@
 }
 
 .nothing-was-found-shapka {
-  fill: green;
+  fill: var(--accent-color);
   width: 68px;
   height: 58px;
   margin-left: 135px;
@@ -100,11 +104,3 @@
   white-space: nowrap;
   cursor: grab; /* Указатель "grab" при наведении для показа возможности перетаскивания */
 }
-
-/* .cat-button-fav {
-  flex: 0 0 auto;
-  margin-right: 10px;
-  background-color: #f0f0f0;
-  border: none;
-  transition: background-color 0.3s;
-} */

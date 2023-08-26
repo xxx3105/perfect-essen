@@ -8,6 +8,7 @@ import './js/hero';
 import './js/popular';
 import './js/recipe-kart';
 import './js/favorits';
+import './js/pagination';
 
 //Замена ссылок на имж
 //<!-- /////way for Vite bag with img links for non-created objects -->

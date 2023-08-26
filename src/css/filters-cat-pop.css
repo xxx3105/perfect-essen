@@ -12,23 +12,23 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.21;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  border: 1px solid var(--dark-th-color-bord);
   background-color: var(--boody-bg);
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--dark-th-color-categ);
   border-radius: 15px;
   cursor: pointer;
   margin-top: 80px;
 }
 
 .cat-button-active {
-  background-color: #9bb537;
-  color: #f8f8f8;
+  background-color: var(--accent-color);
+  color: var(--boody-bg);
   border: none;
 }
 
 .cat-button:hover {
-  background-color: #9bb537;
-  color: #f8f8f8;
+  background-color: var(--accent-color);
+  color: var(--boody-bg);
   border: none;
 }
 
@@ -47,7 +47,7 @@
   padding: 0;
   font-size: 14px;
   font-weight: 500;
-  color: rgba(5, 5, 5, 0.3);
+  color: var(--dark-th-color-categ);
   line-height: 1.2857;
   margin-bottom: 18px;
 
@@ -62,7 +62,7 @@
 }
 
 .cat-option-act {
-  color: #9bb537;
+  color: var(--accent-color);
 }
 
 /* popular */
@@ -84,7 +84,7 @@
   font-size: 18px;
   line-height: 1.33;
   font-weight: 600;
-  color: #050505;
+  color: var(--main-color);
   margin-bottom: 20px;
 }
 
@@ -111,7 +111,8 @@
   font-size: 14px;
   line-height: 1.28;
   font-weight: 600;
-  color: #050505;
+  color: var(--main-color);
+  overflow: hidden;
 }
 
 .popular-descr {
@@ -120,43 +121,43 @@
   font-size: 12px;
   line-height: 1.33;
   font-weight: 400;
-  color: #050505;
+  color: var(--dark-th-color-descrpop);
   margin-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Максимальное количество строк */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
 /* //FILTERS */
 
 .marker-filter {
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--dark-th-color-categ);
 }
 
 #area option {
-  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+  color: var(--dark-th-color-categ);
 }
 
 #area option:checked {
-  color: black; /* Цвет текста для выбранной опции */
+  color: var(--dark-th-color);
 }
 
 #time option {
-  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+  color: var(--dark-th-color-categ);
 }
 
 #time option:checked {
-  color: black; /* Цвет текста для выбранной опции */
+  color: var(--dark-th-color);
 }
 
 #ingr option {
-  color: rgba(5, 5, 5, 0.5); /* Цвет текста по умолчанию */
+  color: var(--dark-th-color-categ);
 }
 
 #ingr option:checked {
-  color: black; /* Цвет текста для выбранной опции */
+  color: var(--dark-th-color);
 }
 
 /* //reset button */
@@ -171,12 +172,12 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  fill: #9bb537;
-  stroke: #9bb537;
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
 }
 
 .name-of-kreuz {
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--dark-th-color-categ);
   font-size: 12px;
   left: 20px;
   cursor: pointer;
@@ -191,8 +192,8 @@
   padding: 14px 48px;
   width: 188px;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
-  color: rgba(5, 5, 5, 0.5);
+  border: 1px solid var(--dark-th-color-bord);
+  color: var(--dark-th-color-categ);
   line-height: 1.28;
   padding-left: 18px;
   background-color: var(--boody-bg);
@@ -218,7 +219,7 @@
 }
 
 #search-input:valid {
-  color: rgba(5, 5, 5);
+  color: var(--dark-th-color);
 }
 
 .filters-area-time-position {
@@ -228,7 +229,7 @@
 
 .filter-name-of-filed {
   margin-bottom: 8px;
-  color: rgba(5, 5, 5, 0.5);
+  color: var(--dark-th-color-categ);
   font-size: 12px;
   left: 20px;
   margin-top: 14px;
@@ -254,7 +255,7 @@
 }
 
 .kart-gradietn {
-  background-image: linear-gradient(to right, #050505 0%, #050505 60%);
+  background-image: linear-gradient(to right, var(--dark-th-kart-grad));
   width: 335px;
   height: 335px;
   position: absolute;
@@ -270,7 +271,7 @@
 .heart-icon {
   cursor: pointer;
   fill: none;
-  stroke: var(--boody-bg);
+  stroke: var(--dark-th-color-hearts);
   width: 22px;
   height: 22px;
   float: right;
@@ -278,7 +279,7 @@
 }
 
 .heart-icon-toggle {
-  fill: var(--boody-bg);
+  fill: var(--dark-th-color-hearts);
 }
 
 .kart-name-food {
@@ -288,7 +289,7 @@
   font-weight: 600;
   line-height: 1.2857;
   text-transform: uppercase;
-  color: #f8f8f8;
+  color: var(--dark-kart-name);
   white-space: nowrap;
   overflow: hidden;
   width: 280px;
@@ -301,7 +302,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1.333;
-  color: #f8f8f8;
+  color: var(--dark-th-color-descrkart);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -311,19 +312,16 @@
 .star-icon-third,
 .star-icon-fourth,
 .star-icon-fift {
-  fill: #eea10c;
+  fill: var(--star-color);
   width: 18px;
   height: 18px;
 }
 
 .filters-icon-rating-black {
-  fill: #0000002b;
+  fill: var(--spec-unaktstar-col);
   width: 18px;
   height: 18px;
 }
-
-/* fill: #eea10c; */
-/* fill: #F8F8F81A; */
 
 .kart-list-rating {
   display: flex;
@@ -340,7 +338,7 @@
 
 .kart-raiting {
   text-align: center;
-  color: #f8f8f8;
+  color: var(--dark-th-color-descrkart);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2857;
@@ -349,11 +347,134 @@
 .kart-recept-button {
   width: 89px;
   height: 31px;
-  color: var(--boody-bg);
+  color: var(--white-color);
   border-radius: 8px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.21;
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   border-style: none;
+}
+
+/* //PAGINATION */
+
+.pagination-list {
+  display: flex;
+  gap: 5px;
+  text-align: center;
+  justify-content: center;
+  /* display: none; */
+  margin-bottom: 40px;
+}
+
+.pagination-num {
+  background-color: var(--pag-unakt);
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.pagination-control {
+  display: none;
+}
+
+/* buttons paginations */
+
+#pagination-begin,
+#pagination-previous,
+#pagination-previous-numb,
+#pagination-first,
+#pagination-seccond,
+#pagination-next,
+#pagination-last {
+  color: var(--pag-text-unakt);
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: center;
+
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+.activ-pag-button {
+  color: var(--boody-bg) !important;
+}
+
+/* Spinner */
+
+.in-progress {
+  --pwd: var(--wave-diameter, 250px);
+  --pwb: var(--wave-thickness, 10px);
+  --pwt: var(--wave-duration, 2s);
+  position: absolute;
+  top: 600;
+  left: 20%;
+  width: 250px;
+  z-index: 10;
+
+  display: none;
+}
+
+@keyframes progresswave {
+  from {
+    border: var(--pwb) var(--font-color) solid;
+    width: calc(var(--pwb) * 2);
+    height: calc(var(--pwb) * 2);
+    border-radius: calc(var(--pwb) * 2);
+  }
+  to {
+    border: var(--pwb) var(--spinner-special) solid;
+    width: var(--pwd);
+    height: var(--pwd);
+    border-radius: var(--pwd);
+  }
+}
+
+.in-progress::before,
+.in-progress::after {
+  content: '';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  animation: var(--pwt) linear infinite progresswave;
+}
+
+.in-progress::after {
+  animation-delay: calc(var(--pwt) / 2);
+}
+
+.pagination-num:hover {
+  box-shadow: var(--box-shad);
+}
+
+/* NOTHING FOUND */
+
+.shapka-filter {
+  fill: var(--accent-color);
+  width: 68px;
+  height: 58px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 24px;
+  margin-top: 40px;
+}
+
+.filt-not-found {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  width: 325px;
 }

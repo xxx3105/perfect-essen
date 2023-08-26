@@ -70,10 +70,22 @@
   </div>
   <!-- //КАРТЫ -->
 
+  <div class="in-progress container"></div>
+
   <div class="recipe-kart-platz" id="recipe-kart-platz"></div>
 
   <div class="karten-block" id="karten-platz"></div>
+  <!-- nothing found -->
+  <div class="filt-not-found">
+    <svg class="shapka-filter">
+      <use href="./img/symbol-defs.svg#icon-nothing"></use>
+    </svg>
 
+    <p class="nothing-was-found-text">
+      Sorry, but we didn`t find matches from 288 recipes.Try again.
+    </p>
+  </div>
+  <!-- nothing found -->
   <div class="karten-block-fav" id="kart-platz-fav"></div>
 
   <div class="rating-kart-field">
@@ -284,9 +296,24 @@
   </div>
 </div> -->
   </div>
+ 
+  <div class="pagination-control container">
+      <ul class="pagination-list">
+        <li class="pagination-num" id="pagination-begin"> <p class="pag-symb-bg">&lt;&lt;</p></li>
+        <li class="pagination-num" id="pagination-previous">&lt;</li>
+        <li class="pagination-num" id="pagination-previous-numb">X</li>
+        <li class="pagination-num" id="pagination-first">1</li>
+        <li class="pagination-num" id="pagination-seccond">2</li>
+        <li class="pagination-num" id="pagination-next">&gt;</li>
+        <li class="pagination-num" id="pagination-last">&gt;&gt;</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- /////way for Vite bag with img links for non-created objects -->
+  <svg style="display: none" id="svg-way">
+    <use href="./img/symbol-defs.svg"></use>
+  </svg>
 </div>
 
-<!-- /////way for Vite bag with img links for non-created objects -->
-<svg style="display: none" id="svg-way">
-  <use href="./img/symbol-defs.svg"></use>
-</svg>
+

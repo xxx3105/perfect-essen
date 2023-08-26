@@ -4,6 +4,7 @@ const tastyTreats = new apiTastyTreats();
 
 import { filterFoods } from './filters-cat-pop.js';
 import { sideBarClosed } from './header.js';
+import { hrefValue } from '../main.js';
 
 const hideHero = document.getElementById('herocont');
 const hidePop = document.getElementById('popular-hidden');
@@ -27,6 +28,10 @@ const backToMain = document.querySelector('.head-logo-text-sty');
 
 const fieldOfCarFavor = document.querySelector('.cat-fav-list');
 
+const paginationIndikatorGenMenuHider = document.querySelector(
+  '.pagination-control'
+);
+
 ///back to main:
 
 backToMain.addEventListener('click', () => {
@@ -47,6 +52,7 @@ function favorTransformer() {
 
   categStandHide.style.display = 'none';
   hideKart.style.display = 'none';
+  paginationIndikatorGenMenuHider.style.display = 'none';
 
   imHeroFavPos.style.marginBottom = '44.5px';
   catLinieSlider.style.marginTop = '40px';
@@ -66,6 +72,7 @@ function favorDetransformer() {
 
   hideKart.style.display = 'block';
   categStandHide.style.display = 'block';
+  paginationIndikatorGenMenuHider.style.display = 'block';
 
   showKartFav.style.display = 'none';
   heroImgFavShow.style.display = 'none';
@@ -74,7 +81,8 @@ function favorDetransformer() {
 
   imHeroFavPos.style.marginBottom = '85px';
   catLinieSlider.style.marginTop = '80px';
-  filterFoods();
+  filterFoods(1);
+  sideBarClosed();
 }
 
 //Функция проверки наличия в локале рецептов и вывода изображения ничего не найдено
@@ -212,7 +220,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
       <div class="kart-gradietn"></div>
       <div class="kart-andere-information">
         <svg class="heart-icon" data-key-information="${keyInformationId}" id="${keyInformationId}">
-          <use href="./img/symbol-defs.svg#icon-heart"></use>
+        <use href="${hrefValue}#icon-heart"></use>
         </svg>
         <h2 class="kart-name-food">${keyInformationTitle}</h2>
         <p class="kart-food-descr">
@@ -224,11 +232,11 @@ function applyCategoryFilter(selectedCategory, recipes) {
           <div>
             <ul class="kart-list-rating">
               <li>
-                <svg class="star-icon-first ${getRatingColorClass(
-                  keyInformationRat,
-                  1
-                )}" id="first-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <svg class="star-icon-first ${getRatingColorClass(
+                   keyInformationRat,
+                   1
+                 )}" id="first-star">
+                  <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -236,7 +244,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   2
                 )}" id="second-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -244,7 +252,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   3
                 )}" id="third-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -252,7 +260,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   4
                 )}" id="fourth-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                 <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
               <li>
@@ -260,7 +268,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
                   keyInformationRat,
                   5
                 )}" id="fift-star">
-                  <use href="./img/symbol-defs.svg#icon-star"></use>
+                  <use href="${hrefValue}#icon-star"></use>
                 </svg>
               </li>
             </ul>

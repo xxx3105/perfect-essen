@@ -10,10 +10,11 @@
   font-size: 26px;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--dark-th-color);
 }
 
 .hero-green-text {
-  color: #9bb537;
+  color: var(--accent-color);
   font-style: italic;
   font-size: 26px;
   font-weight: 400;
@@ -25,22 +26,24 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 14px;
+  color: var(--dark-th-color);
 }
 
 .hero-order-now {
   width: 111px;
   height: 37px;
-  border: 1px solid #9bb537;
+  border: 1px solid var(--accent-color);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.21;
   background-color: var(--boody-bg);
   margin-top: 28px;
+  color: var(--dark-th-color);
 }
 
 .hero-order-now:hover {
-  background-color: #9bb537;
+  background-color: var(--accent-color);
   color: var(--boody-bg);
 }
 
@@ -50,7 +53,7 @@
   font-weight: 500;
   text-align: center;
   font-size: 10px;
-  color: rgba(248, 248, 248, 0.6);
+  color: var(--pag-text-unakt);
   line-height: 1.4;
   width: 144px;
   height: 28px;
@@ -65,7 +68,7 @@
   text-align: center;
   font-size: 8px;
   line-height: 1.5;
-  color: rgba(248, 248, 248, 0.2);
+  color: var(--pag-text-unakt);
   position: absolute;
   bottom: 14px;
   left: 67px;
@@ -79,7 +82,7 @@
 :root {
   --swiper-navigation-size: 30px !important;
 
-  --swiper-theme-color: white !important;
+  --swiper-theme-color: var(--main-color) !important;
 }
 
 .swiper {
@@ -134,15 +137,17 @@
   width: 200px;
   height: 280px;
   border-radius: 15px;
+
   background: radial-gradient(
     ellipse at center,
-    rgba(155, 181, 55, 0.3) -200%,
-    #050505 100%
+    var(--pag-unakt) -200%,
+    var(--dark-boody-bg) 100%
   );
 }
 
 .slider-second-part {
   position: relative;
+  border: 1px solid rgba(155, 181, 55, 0.3);
 }
 
 .slider-img-three {
