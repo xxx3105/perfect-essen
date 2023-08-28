@@ -36,9 +36,9 @@
 }
 
 .head-logo-text-sty:hover {
-  /* //border-radius: 50%; Для создания круглой формы */
-  box-shadow: 0 0 10px --backdrop;
-  background-color: var(--pag-text-unakt);
+  border-radius: 15px;
+
+  text-shadow: var(--text-shadow);
 }
 
 .head-logo {
@@ -50,20 +50,20 @@
 }
 
 .head-order-basket {
-  fill: var(--main-color);
+  fill: var(--dark-th-color);
   width: 24px;
   height: 24px;
-  stroke: var(--main-color);
+  stroke: var(--dark-th-color);
   fill: var(--boody-bg);
   cursor: pointer;
   margin-right: 7px;
 }
 
 .head-hamburger-icon {
-  fill: var(--main-color);
+  fill: var(--dark-th-color);
   width: 32px;
   height: 32px;
-  stroke: var(--main-color);
+  stroke: var(--dark-th-color);
   margin-left: 7px;
   cursor: pointer;
 }
@@ -71,6 +71,7 @@
 .head-order-basket:hover,
 .head-hamburger-icon:hover {
   stroke: var(--accent-color);
+  text-shadow: var(--text-shadow);
 }
 
 .head-cross-icon {
@@ -150,7 +151,6 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
-  /* display: none; */
 }
 
 .head-checkbox-ios .checkbox-ios-switch {
@@ -272,7 +272,7 @@
   line-height: 1.22;
   padding-top: 28px;
   margin-left: 20px;
-  color: var(--white-color);
+  color: var(--dark-th-color);
 }
 
 .modal-form-position {
@@ -343,4 +343,152 @@
   -moz-appearance: none;
   cursor: pointer;
   margin-top: 40px;
+}
+#highload1 {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .head-nav-nav {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .head-nav-fav,
+  .head-nav-home {
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.45;
+    cursor: pointer;
+  }
+
+  .head-nav-fav {
+    color: var(--dark-th-color);
+  }
+
+  .head-nav-home:hover {
+    text-shadow: var(--text-shadow);
+  }
+
+  .head-nav-fav:hover {
+    text-shadow: var(--text-shadow);
+  }
+
+  .head-logo-pos {
+    margin-right: 211px;
+    margin-left: 203px;
+  }
+
+  .head-hamb-button {
+    display: none;
+  }
+
+  /* ///second chekbox */
+
+  .lb1 {
+    margin: 10px 0 10px 20px;
+  }
+  #highload1 {
+    display: none;
+  }
+  #highload1 + .lb1,
+  #highload1 + .lb1::before,
+  #highload1 + .lb1::after {
+    transition: all 0.3s;
+  }
+  #highload1 + .lb1 {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 21px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  #highload1 + .lb1::before {
+    display: block;
+    content: attr(data-offlabel);
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+  }
+  #highload1 + .lb1::after {
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+  }
+  #highload1:checked + .lb1::before {
+    content: attr(data-onlabel);
+    left: 8px;
+    right: auto;
+    color: #fff;
+  }
+  #highload1:checked + .lb1::after {
+    left: 28px;
+    background-color: #f7f7f7;
+  }
+  #highload1 + .lb1 {
+    background-color: #ccc;
+  }
+  #highload1:checked + .lb1 {
+    background-color: var(--accent-color);
+  }
+  #highload1:checked + .lb1::before {
+    color: #fff;
+  }
+
+  .modal-fenster-order {
+    width: 440px;
+    height: 632px;
+
+    top: 400%;
+    left: 20%;
+  }
+
+  .mod-input-design {
+    width: 360px;
+  }
+
+  .modal-form-position {
+    width: 360px;
+  }
+
+  .modal-name-window {
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+
+  .mod-button-design {
+    width: 360px;
+  }
+
+  .nothing-was-found-text,
+  .nothing-was-found {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .nothing-was-found-shapka {
+    margin-left: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .head-logo-pos {
+    margin-left: 391px;
+    margin-right: 399px;
+  }
+
+  .head-position {
+    margin-bottom: 94px;
+  }
 }

@@ -52,7 +52,6 @@
 
   user-select: none;
   outline: none;
-  font-weight: 500;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -66,6 +65,11 @@
 }
 
 /* popular */
+
+.pop-table-flex {
+  display: flex;
+  gap: 16px;
+}
 
 .popular-container-gen {
   margin-top: 40px;
@@ -84,7 +88,7 @@
   font-size: 18px;
   line-height: 1.33;
   font-weight: 600;
-  color: var(--main-color);
+  color: var(--dark-th-color);
   margin-bottom: 20px;
   user-select: none;
 }
@@ -98,6 +102,7 @@
 .popular-image {
   width: 64px;
   height: 64px;
+  border-radius: 15px;
 }
 
 .pop-recht-teil {
@@ -112,7 +117,7 @@
   font-size: 14px;
   line-height: 1.28;
   font-weight: 600;
-  color: var(--main-color);
+  color: var(--dark-th-color);
   overflow: hidden;
 }
 
@@ -127,7 +132,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -240,6 +245,11 @@
 }
 
 /* ///БЛОК КАРТ */
+
+#karten-platz {
+  display: block;
+}
+
 .karten-block {
   margin-top: 20px;
 }
@@ -293,7 +303,7 @@
   font-weight: 600;
   line-height: 1.2857;
   text-transform: uppercase;
-  color: var(--dark-kart-name);
+  color: var(--main-color);
   white-space: nowrap;
   overflow: hidden;
   width: 280px;
@@ -380,10 +390,16 @@
 
 .hidden {
   display: none;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .pagination-control {
   display: none;
+  margin-bottom: 50px;
 }
 
 /* buttons paginations */
@@ -413,19 +429,30 @@
   color: var(--boody-bg) !important;
 }
 
+.pagination-num:hover {
+  box-shadow: var(--box-shad);
+}
+
 /* Spinner */
+
+.one-spin {
+  top: 600;
+  left: 20%;
+}
+
+.second-spin {
+  top: 700px;
+  left: 165px;
+}
 
 .in-progress {
   --pwd: var(--wave-diameter, 250px);
   --pwb: var(--wave-thickness, 10px);
   --pwt: var(--wave-duration, 2s);
   position: absolute;
-  top: 600;
-  left: 20%;
+
   width: 250px;
   z-index: 10;
-
-  display: none;
 }
 
 @keyframes progresswave {
@@ -461,10 +488,6 @@
   animation-delay: calc(var(--pwt) / 2);
 }
 
-.pagination-num:hover {
-  box-shadow: var(--box-shad);
-}
-
 /* NOTHING FOUND */
 
 .shapka-filter {
@@ -483,4 +506,284 @@
   align-items: center;
   margin-bottom: 100px;
   width: 325px;
+}
+
+@media only screen and (min-width: 768px) {
+  #karten-platz {
+    display: flex;
+  }
+
+  .tablet-position {
+    display: flex;
+    gap: 32px;
+  }
+
+  .popular-container {
+    width: 176px;
+    height: 316px;
+  }
+
+  .pop-klein-container {
+    display: inline-block;
+  }
+
+  .popular-descr {
+    width: 120px;
+    height: 47px;
+  }
+
+  .pop-table-flex {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pop-recht-teil {
+    width: 120px;
+    height: 67px;
+  }
+
+  .categories-container {
+    width: 176px;
+    height: 417px;
+    margin-top: 30px;
+  }
+
+  .tabler-position-karts-filters {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .cat-button {
+    margin-top: 28px;
+  }
+
+  .filter-name-of-filed {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .cat-option {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  #search-input,
+  .filter-search {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  #time,
+  #area,
+  #ingr {
+    font-size: 16px;
+    font-weight: 500;
+    height: 48px;
+    padding: 13px 18px;
+  }
+  .pop-title {
+    margin-top: 64px;
+    margin-bottom: 32px;
+  }
+
+  .popular-image {
+    width: 48px;
+    height: 48px;
+  }
+  #search-input,
+  .filter-search {
+    width: 278px;
+    height: 48px;
+  }
+
+  .filters-area-time-position {
+    position: relative;
+    margin-top: 16px;
+  }
+
+  .tablet-time-pos-abs-filt {
+    position: absolute;
+    top: -92px;
+    right: 36px;
+  }
+
+  #time {
+    width: 125px;
+    height: 48px;
+  }
+
+  .filters {
+    position: relative;
+  }
+
+  .tablet-ingr-pos-abs-filt {
+    position: absolute;
+    bottom: 0;
+    left: 157px;
+  }
+  #area {
+    width: 141px;
+  }
+
+  .reset-button-position {
+    margin-left: 391px;
+  }
+
+  .categories-container::-webkit-scrollbar-thumb {
+    color: var(--dark-th-color-bord);
+    background-color: var(--dark-th-color-bord);
+    border-radius: 4px;
+  }
+
+  .categories-container::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .kart-gradietn {
+    width: 240px;
+    height: 264px;
+  }
+  .kart-bild {
+    width: 240px;
+    height: 264px;
+  }
+
+  .kard-prod-contatiner {
+    width: 240px;
+    height: 264px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .kard-prod-contatiner:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .kart-name-food {
+    width: 208px;
+    height: 18px;
+    margin-top: 143px;
+  }
+
+  .kart-food-descr {
+    width: 208px;
+    height: 32px;
+  }
+
+  .kart-list-rating {
+    margin-right: 3px;
+  }
+
+  .karten-block {
+    width: 496px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .pagination-list {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .filt-not-found {
+    margin-left: 100px;
+  }
+
+  .one-spin {
+    left: 365px;
+    top: 1520px;
+  }
+
+  .second-spin {
+    top: 840px;
+    left: 300px;
+  }
+
+  .tablte-cat-position {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .filters-area-time-position {
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .filters-area-position {
+    top: -20px;
+    left: 436px;
+    position: absolute;
+  }
+
+  .tablet-time-pos-abs-filt {
+    top: -20px;
+    left: 295px;
+  }
+
+  .tablet-ingr-pos-abs-filt {
+    top: -4px;
+    left: 593px;
+  }
+
+  .reset-button-position {
+    margin-left: 676px;
+  }
+
+  .tablet-position {
+    gap: 64px;
+  }
+
+  .categories-container {
+    width: 235px;
+    height: 416px;
+    margin-top: 42px;
+  }
+
+  .kard-prod-contatiner:nth-child(2n) {
+    margin-right: 16px;
+  }
+
+  .kard-prod-contatiner:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  #karten-platz {
+    width: 782px;
+  }
+  .kart-gradietn,
+  .kart-bild,
+  .kard-prod-contatiner {
+    width: 250px;
+    height: 287px;
+  }
+
+  #pagination-begin,
+  #pagination-previous,
+  #pagination-previous-numb,
+  #pagination-first,
+  #pagination-seccond,
+  #pagination-next,
+  #pagination-last {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .pagination-list {
+    gap: 15px;
+    width: 500px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+  }
+
+  .one-spin {
+    left: 700px;
+    top: 800px;
+  }
+
+  .filt-not-found {
+    width: 600px;
+    font-size: 16px;
+  }
 }

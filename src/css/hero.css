@@ -154,3 +154,98 @@
   object-fit: cover;
   overflow: hidden;
 }
+
+@media only screen and (min-width: 768px) {
+  .container-hero {
+    max-width: 768px;
+    margin-bottom: 106px;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    overflow: hidden !important;
+  }
+
+  .swiper-wrapper {
+    width: 736px;
+  }
+
+  .swiper {
+    width: 736px;
+    height: 442px;
+  }
+
+  .slider-img-one {
+    width: 137px;
+    height: 442px;
+  }
+
+  .slider-second-part,
+  .slider-img-three {
+    width: 351px;
+    height: 442px;
+  }
+
+  .slider-img-two {
+    width: 262px;
+    height: 262px;
+  }
+
+  .slider-food-descr {
+    font-size: 14px;
+    color: var(--pag-text-unakt);
+    line-height: 1.28;
+    width: 320px;
+    height: 28px;
+    bottom: 40px;
+  }
+
+  .slider-country {
+    font-size: 12px;
+    line-height: 1.16;
+    color: var(--pag-text-unakt);
+    bottom: 32px;
+    left: 147px;
+    color: var(--pag-text-unakt);
+  }
+
+  .hero-title {
+    font-size: 36px;
+    font-weight: 600;
+  }
+
+  .hero-green-text {
+    font-size: 36px;
+  }
+  .slider-left-part {
+    width: 446px;
+    height: 193px;
+    margin-bottom: 141px;
+  }
+  .hero-site-descr {
+    font-size: 16px;
+    line-height: 1.5;
+    width: 408px;
+  }
+
+  .hero-order-now {
+    margin-top: 32px;
+    width: 127px;
+    height: 45px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .container-hero {
+    display: flex;
+    width: 1135px;
+    max-width: 1135px !important;
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+
+  .slider-left-part {
+    padding-top: 62px;
+  }
+  .hero-title {
+    width: 446px;
+  }
+}

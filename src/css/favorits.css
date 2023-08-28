@@ -22,6 +22,7 @@
 .category-fav {
   margin-top: 40px;
   display: none;
+  /* display: contents; */
 }
 
 .cat-button-fav {
@@ -50,20 +51,21 @@
 .cat-button-fav:hover {
   background-color: var(--accent-color);
   color: var(--boody-bg);
-  border: none;
+  /* //border: none; */
   user-select: none;
+  box-shadow: var(--box-shad);
 }
 
 .cat-fav-list {
   display: flex;
 
-  height: 50px;
+  height: 55px;
   width: 335px;
   overflow: hidden;
 }
 
 .karten-block-fav {
-  display: none;
+  /* display: none; */
   margin-top: 20px;
   margin-bottom: 60px;
 }
@@ -97,10 +99,140 @@
   display: none !important;
 }
 
-/* /////// */
 .cat-fav-list {
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
   cursor: grab; /* Указатель "grab" при наведении для показа возможности перетаскивания */
+}
+
+/* //Cards - for favorits */
+/* /////// */
+
+.fav-prod-contatiner {
+  position: relative;
+  width: 335px;
+  height: 335px;
+  margin-bottom: 24px;
+}
+
+.fav-kart-bild {
+  width: 335px;
+  height: 335px;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.fav-kart-gradietn {
+  background-image: linear-gradient(to right, var(--dark-th-kart-grad));
+  width: 335px;
+  height: 335px;
+  position: absolute;
+  border-radius: 8px;
+  opacity: 10%;
+}
+
+.fav-kart-andere-information {
+  position: absolute;
+  margin-left: 16px;
+}
+
+.fav-kart-name-food {
+  margin-top: 214px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2857;
+  text-transform: uppercase;
+  color: var(--main-color);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 280px;
+  height: 18px;
+}
+
+.fav-kart-food-descr {
+  width: 303px;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.333;
+  color: var(--dark-th-color-descrkart);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-kart-unten-teil-kart {
+  display: flex;
+  margin-top: 16px;
+  margin-right: 16px;
+  float: right;
+}
+
+.fav-kart-recept-button {
+  width: 89px;
+  height: 31px;
+  color: var(--white-color);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.21;
+  background-color: var(--accent-color);
+  border-style: none;
+  user-select: none;
+}
+
+@media only screen and (min-width: 768px) {
+  /* ///favorits */
+  .favor-hero-img {
+    background-image: url(../img/hero-favorites-tablet.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: padding-box;
+    border-radius: 15px;
+    max-width: 704px;
+    height: 356px;
+  }
+  .cat-fav-list {
+    width: 704px;
+  }
+
+  .fav-prod-contatiner,
+  .fav-kart-bild,
+  .fav-kart-gradietn {
+    width: 224px;
+    height: 244px;
+    border-radius: 8px;
+  }
+  .fav-prod-contatiner {
+    margin-right: 16px;
+  }
+  .fav-prod-contatiner:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .fav-kart-name-food {
+    width: 140px;
+    margin-top: 123px;
+  }
+
+  .fav-kart-food-descr {
+    width: 192px;
+    height: 32px;
+  }
+
+  .star-icon-first,
+  .star-icon-second,
+  .star-icon-third,
+  .star-icon-fourth,
+  .star-icon-fift {
+    width: 16px;
+    height: 16px;
+  }
+
+  .karten-block-fav {
+    width: 704px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

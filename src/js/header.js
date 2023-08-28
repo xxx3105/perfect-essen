@@ -126,6 +126,7 @@ document.addEventListener('click', function (event) {
 /// DARK MODE
 
 const colorToggle = document.getElementById('colorToggle');
+const highloadToggle = document.getElementById('highload1'); // ID второго чекбокса
 const root = document.documentElement;
 
 // При загрузке страницы, проверяем, какое состояние было сохранено
@@ -133,15 +134,30 @@ const savedColorMode = localStorage.getItem('colorMode');
 if (savedColorMode === 'dark') {
   applyDarkMode();
   colorToggle.checked = true;
+  highloadToggle.checked = true; // Устанавливаем состояние второго чекбокса
+} else {
+  applyLightMode();
+  colorToggle.checked = false;
+  highloadToggle.checked = false; // Устанавливаем состояние второго чекбокса
 }
 
 colorToggle.addEventListener('change', () => {
   if (colorToggle.checked) {
     applyDarkMode();
-    localStorage.setItem('colorMode', 'dark'); // Сохраняем выбранное состояние
+    localStorage.setItem('colorMode', 'dark');
   } else {
     applyLightMode();
-    localStorage.setItem('colorMode', 'light'); // Сохраняем выбранное состояние
+    localStorage.setItem('colorMode', 'light');
+  }
+});
+
+highloadToggle.addEventListener('change', () => {
+  if (highloadToggle.checked) {
+    applyDarkMode();
+    localStorage.setItem('colorMode', 'dark');
+  } else {
+    applyLightMode();
+    localStorage.setItem('colorMode', 'light');
   }
 });
 
@@ -165,6 +181,10 @@ function applyDarkMode() {
     '--box-shad',
     '0px 2px 5px rgba(255, 255, 255, 0.3), 0px 1px 3px rgba(255, 255, 255, 0.12), 0px 2px 1px rgba(255, 255, 255, 0.2)'
   );
+  root.style.setProperty(
+    '--text-shadow',
+    '0px 2px 5px rgba(255, 255, 255, 0.3), 0px 1px 3px rgba(255, 255, 255, 0.12), 0px 2px 1px rgba(255, 255, 255, 0.2)'
+  );
 }
 
 function applyLightMode() {
@@ -184,5 +204,9 @@ function applyLightMode() {
   root.style.setProperty(
     '--box-shad',
     '0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2)'
+  );
+  root.style.setProperty(
+    '--text-shadow',
+    '0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.12),0px 2px 1px rgba(0, 0, 0, 0.2)'
   );
 }

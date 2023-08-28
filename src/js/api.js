@@ -11,6 +11,7 @@ export default class apiTastyTreats {
     comment,
     rate,
 
+    title,
     category,
     page,
     limit,
@@ -60,9 +61,17 @@ export default class apiTastyTreats {
       });
   }
 
-  getDetailInformationParam(category, page, limit, area, ingredients, time) {
+  getDetailInformationParam(
+    title,
+    category,
+    page,
+    limit,
+    area,
+    ingredients,
+    time
+  ) {
     return fetch(
-      `${BASE_URL}/recipes?category=${category}&page=${page}&limit=${limit}&time=${time}&area=${area}&ingredient=${ingredients}`
+      `${BASE_URL}/recipes?title=${title}&category=${category}&page=${page}&limit=${limit}&time=${time}&area=${area}&ingredient=${ingredients}`
     )
       .then(response => response.json())
       .catch(error => {
@@ -228,8 +237,9 @@ const tastyTreatsApi = new apiTastyTreats();
 // tastyTreatsApi.getPopularRecipers()
 //     .then(popularRec => { console.log(popularRec); });
 
-//  tastyTreatsApi.getId(_id)
-//     .then(recId => { console.log(recId); });
+// tastyTreatsApi.getId('6462a8f74c3d0ddd28897fc1').then(recId => {
+//   console.log(recId);
+// });
 
 //  tastyTreatsApi.getAreas()
 //     .then(infoAreas => { console.log(infoAreas); });

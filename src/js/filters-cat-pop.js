@@ -1,17 +1,11 @@
 import apiTastyTreats from './api.js';
-
-const tastyTreats = new apiTastyTreats();
-
 import { filterAndLogData } from './recipe-kart.js';
-
 import { hrefValue } from '../main.js';
-
-import { filterCatFav } from '../js/favorits.js';
-
 import { paginationHandler } from '../js/pagination.js';
 
 //переменные
 
+const tastyTreats = new apiTastyTreats();
 const listTime = document.getElementById('time');
 const listArea = document.getElementById('area');
 const listIngr = document.getElementById('ingr');
@@ -21,7 +15,7 @@ let recipeQuantForPag = 0;
 let paginationHandlerCalled = false;
 let previousPaginationIndicatorTotalPages = null;
 
-const inProgressIndicator = document.querySelector('.in-progress');
+const inProgressIndicator = document.querySelector('.one-spin');
 
 //categories
 
@@ -250,18 +244,40 @@ function paginationIndicator(totalPages) {
   }
 }
 
+///quantity of showed pages depends on viewportwidth
+
+function calculateColumns() {
+  const viewportWidth = window.innerWidth;
+
+  if (viewportWidth <= 768) {
+    return 6;
+  } else if (viewportWidth >= 769 && viewportWidth <= 1280) {
+    return 8;
+  } else {
+    return 9;
+  }
+}
+
+let numberOfCards = calculateColumns();
+console.log(numberOfCards);
+
+//main filter of project
+
 export function filterFoods(pageOfList) {
+  let searchedTitle = selectedSearch;
   let choosedCategory = selectedCategory;
   let currentPage = pageOfList || 1;
-  let itemsPageLimit = '9';
+  //let itemsPageLimit = '9';
+  let itemsPageLimit = numberOfCards;
   let foodArea = selectedArea;
   let ingrId = selectedIngredient;
   let timeOptions = selectedTime;
 
-  inProgressIndicator.style.display = 'block';
+  inProgressIndicator.classList.remove('hidden');
 
   tastyTreats
     .getDetailInformationParam(
+      searchedTitle,
       choosedCategory,
       currentPage,
       itemsPageLimit,
@@ -278,7 +294,7 @@ export function filterFoods(pageOfList) {
       const paginationIndicatorPerPage = data.perPage;
       const paginationIndicatorTotalPages = data.totalPages;
 
-      inProgressIndicator.style.display = 'none';
+      inProgressIndicator.classList.add('hidden');
 
       console.log(
         paginationIndicatorPage,

@@ -5,6 +5,7 @@ const tastyTreats = new apiTastyTreats();
 import { filterFoods } from './filters-cat-pop.js';
 import { sideBarClosed } from './header.js';
 import { hrefValue } from '../main.js';
+import { filterAndLogData } from '../js/recipe-kart.js';
 
 const hideHero = document.getElementById('herocont');
 const hidePop = document.getElementById('popular-hidden');
@@ -21,7 +22,7 @@ const favorEntreBut = document.querySelector('.head-nav-sidebar-home');
 const favorExitBut = document.querySelector('.head-nav-sidebar-fav');
 
 const categFavorShow = document.querySelector('.category-fav');
-const categStandHide = document.querySelector('.categor-standart');
+const categStandHide = document.querySelector('.tablte-cat-position');
 
 const nothingFound = document.querySelector('.nothing-was-found');
 const backToMain = document.querySelector('.head-logo-text-sty');
@@ -34,12 +35,18 @@ const paginationIndikatorGenMenuHider = document.querySelector(
 
 const filterMainNotFoundHide = document.querySelector('.filt-not-found');
 
+const enterFromTabletFavor = document.querySelector('.head-nav-fav');
+const exitFromTabletFavor = document.querySelector('.head-nav-home');
+
+const spinForFavor = document.querySelector('.second-spin');
+
 ///back to main:
 
 backToMain.addEventListener('click', () => {
   favorDetransformer();
 });
 
+enterFromTabletFavor.addEventListener('click', favorTransformer);
 favorEntreBut.addEventListener('click', favorTransformer);
 
 function favorTransformer() {
@@ -47,24 +54,27 @@ function favorTransformer() {
   hidePop.classList.add('hidden-favorites');
   hideFilter.classList.add('hidden-favorites');
   hideReset.classList.add('hidden-favorites');
+  hideKart.classList.add('hidden');
 
   heroImgFavShow.style.display = 'block';
-  showKartFav.style.display = 'block';
+  //showKartFav.style.display = 'block';
+  showKartFav.classList.remove('hidden');
+  //////showKartFav
   categFavorShow.style.display = 'block';
-
   categStandHide.style.display = 'none';
-  hideKart.style.display = 'none';
+  //hideKart.style.display = 'none';
   paginationIndikatorGenMenuHider.style.display = 'none';
   filterMainNotFoundHide.style.display = 'none';
 
   imHeroFavPos.style.marginBottom = '44.5px';
-  catLinieSlider.style.marginTop = '40px';
+  catLinieSlider.style.marginTop = '30px';
   filterCatFav();
   lokalChecker();
   filterFoodsFav();
   sideBarClosed();
 }
 
+exitFromTabletFavor.addEventListener('click', favorDetransformer);
 favorExitBut.addEventListener('click', favorDetransformer);
 
 function favorDetransformer() {
@@ -72,18 +82,21 @@ function favorDetransformer() {
   hidePop.classList.remove('hidden-favorites');
   hideFilter.classList.remove('hidden-favorites');
   hideReset.classList.remove('hidden-favorites');
+  showKartFav.classList.add('hidden');
 
-  hideKart.style.display = 'block';
+  //hideKart.style.display = 'flex';
+  hideKart.classList.remove('hidden');
   categStandHide.style.display = 'block';
   paginationIndikatorGenMenuHider.style.display = 'block';
 
-  showKartFav.style.display = 'none';
+  ///showKartFav.style.display = 'none';
   heroImgFavShow.style.display = 'none';
   categFavorShow.style.display = 'none';
   nothingFound.style.display = 'none';
 
   imHeroFavPos.style.marginBottom = '85px';
-  catLinieSlider.style.marginTop = '80px';
+  //categStandHide.style.marginTop = '80px';
+
   filterFoods(1);
   sideBarClosed();
 }
@@ -139,7 +152,9 @@ export async function filterFoodsFav(selectedCategory) {
     }
 
     try {
+      spinForFavor.classList.remove('hidden');
       const recipeInfo = await tastyTreats.getId(recipeId);
+      spinForFavor.classList.add('hidden');
       return recipeInfo;
     } catch (error) {
       console.error(
@@ -180,7 +195,7 @@ export async function filterFoodsFav(selectedCategory) {
 }
 
 function applyCategoryFilter(selectedCategory, recipes) {
-  console.log(`ffdfddf:${selectedCategory}`);
+  ///console.log(`ffdfddf:${selectedCategory}`);
 
   const displayPlatzFav = document.getElementById('kart-platz-fav');
   displayPlatzFav.innerHTML = '';
@@ -194,7 +209,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
 
   for (let i = 0; i < filteredRecipes.length; i++) {
     const recipeInfo = filteredRecipes[i];
-    console.log('Processing recipeInfo:', recipeInfo);
+    //console.log('Processing recipeInfo:', recipeInfo);
     if (recipeInfo) {
       const keyInformationArea = recipeInfo.area;
       const keyInformationCat = recipeInfo.category;
@@ -214,19 +229,19 @@ function applyCategoryFilter(selectedCategory, recipes) {
       // Остальной код по созданию карточек на основе recipeInfo
       const receiptKarten = `
  
-           <div class="kard-prod-contatiner"  data-key-information-cat="${keyInformationCat}">
+           <div class="fav-prod-contatiner"  data-key-information-cat="${keyInformationCat}">
       <img
-        class="kart-bild"
+        class="fav-kart-bild"
         src="${keyInformationThumb}"
         alt="${keyInformationTitle}"
       />
-      <div class="kart-gradietn"></div>
-      <div class="kart-andere-information">
+      <div class="fav-kart-gradietn"></div>
+      <div class="fav-kart-andere-information">
         <svg class="heart-icon" data-key-information="${keyInformationId}" id="${keyInformationId}">
         <use href="${hrefValue}#icon-heart"></use>
         </svg>
-        <h2 class="kart-name-food">${keyInformationTitle}</h2>
-        <p class="kart-food-descr">
+        <h2 class="fav-kart-name-food">${keyInformationTitle}</h2>
+        <p class="fav-kart-food-descr">
          ${keyInformationDescr}...
         </p>
 
@@ -276,7 +291,7 @@ function applyCategoryFilter(selectedCategory, recipes) {
               </li>
             </ul>
           </div>
-          <div><button type="button" class="kart-recept-button" data-key-information="${keyInformationId}" >See recipe</button></div>
+          <div><button type="button" class="fav-kart-recept-button" data-key-information="${keyInformationId}" >See recipe</button></div>
         </div>
       </div>
         </div>
@@ -294,13 +309,18 @@ function applyCategoryFilter(selectedCategory, recipes) {
       }
 
       //слушатель на кнопки рецепта///
-      var buttons = document.querySelectorAll('.kart-recept-button');
 
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          const keyInformation = button.getAttribute('data-key-information');
+      var cards = document.querySelectorAll('.fav-kart-recept-button');
 
-          filterAndLogData(keyInformation, foods);
+      cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          const keyInformation = card.getAttribute('data-key-information');
+
+          tastyTreats.getId(keyInformation).then(recId => {
+            const recArray = [recId];
+
+            filterAndLogData(keyInformation, recArray);
+          });
         });
       });
 
