@@ -91,6 +91,7 @@
 .nothing-was-found-text {
   width: 335px;
   height: 72px;
+  color: var(--dark-th-color);
 }
 
 /* slider */

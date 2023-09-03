@@ -262,7 +262,7 @@ function calculateColumns() {
   if (viewportWidth <= 768) {
     return 6;
   } else if (viewportWidth >= 769 && viewportWidth <= 1280) {
-    return 8;
+    return 9;
   } else {
     return 9;
   }
