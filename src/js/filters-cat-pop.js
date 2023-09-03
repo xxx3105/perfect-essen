@@ -176,7 +176,7 @@ function textFromSearchField(event) {
 //10. выбранная категория
 function searchCat(event) {
   selectedCategory = event.target.textContent;
-  console.log(selectedCategory);
+  //console.log(selectedCategory);
   filterFoods();
 }
 
@@ -226,7 +226,17 @@ function resetFilters() {
     elem => (elem.style.color = `var(--dark-th-color-categ)`)
   );
 
-  filterFoods();
+  const reloadPage = Number(1);
+
+  // const paginationElements = document.querySelectorAll('.pagination-num');
+
+  // paginationElements.forEach(element => {
+  //   element.innerHTML = '';
+  // });
+
+  filterFoods(1);
+  //paginationHandler(undefined, reloadPage);
+  location.reload();
 }
 
 ///пряталка пагинации
@@ -259,7 +269,7 @@ function calculateColumns() {
 }
 
 let numberOfCards = calculateColumns();
-console.log(numberOfCards);
+//console.log(numberOfCards);
 
 //main filter of project
 
@@ -456,7 +466,7 @@ export function filterFoods(pageOfList) {
             const keyInformation = button.getAttribute('data-key-information');
 
             filterAndLogData(keyInformation, foods);
-            console.log('Значение data-key-information:', keyInformation);
+            //console.log('Значение data-key-information:', keyInformation);
           });
         });
 

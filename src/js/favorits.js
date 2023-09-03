@@ -144,7 +144,7 @@ export async function filterFoodsFav(selectedCategory) {
   const categoryButtons = document.querySelectorAll('.cat-button-fav');
   const favoriteIds = Object.keys(localStorage);
 
-  console.log('Выбрана категория filterFoodsFav:', selectedCategory);
+  //console.log('Выбрана категория filterFoodsFav:', selectedCategory);
 
   const recipePromises = favoriteIds.map(async recipeId => {
     if (recipeId.length !== 24) {

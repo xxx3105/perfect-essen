@@ -265,8 +265,10 @@
   .recipe-tag-list {
     margin-top: 16px;
   }
+}
+
+@media only screen and (min-width: 1280px) {
   .receipe-kart {
-    top: 570px;
-    left: 210px;
+    left: 560px;
   }
 }

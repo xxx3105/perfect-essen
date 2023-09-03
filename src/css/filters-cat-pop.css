@@ -701,9 +701,21 @@
   .tablte-cat-position {
     margin-right: 0;
   }
+
+  .kart-gradietn:nth-child(9n),
+  .kart-bild:nth-child(9n),
+  .kard-prod-contatiner:nth-child(9n) {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
+  .kart-gradietn:nth-child(9n),
+  .kart-bild:nth-child(9n),
+  .kard-prod-contatiner:nth-child(9n) {
+    display: block;
+  }
+
   .filters-area-time-position {
     top: 0;
     left: 0;
@@ -784,6 +796,27 @@
 
   .filt-not-found {
     width: 600px;
+    font-size: 16px;
+  }
+
+  /* kartn */
+
+  .kart-name-food {
+    margin-top: 166px;
+  }
+  .kart-list-rating {
+    margin-right: 9px;
+  }
+
+  .star-icon-first,
+  .star-icon-second,
+  .star-icon-third,
+  .star-icon-fourth,
+  .star-icon-fift {
+    height: 18px !important;
+    width: 18px !important;
+  }
+  .kart-raiting {
     font-size: 16px;
   }
 }

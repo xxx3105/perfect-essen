@@ -236,3 +236,40 @@
     flex-wrap: wrap;
   }
 }
+
+@media only screen and (min-width: 1280px) {
+  .favor-hero-img {
+    background-image: url(../img/hero-favorites-desktop.jpg);
+    max-width: 1080px;
+  }
+  .cat-fav-list {
+    width: 1100px;
+  }
+
+  .karten-block-fav {
+    width: 1080px;
+  }
+
+  .fav-prod-contatiner,
+  .fav-kart-bild,
+  .fav-kart-gradietn {
+    width: 258px;
+    height: 287px;
+    border-radius: 15px;
+  }
+
+  .fav-prod-contatiner:nth-child(3n) {
+    margin-right: 16px;
+  }
+  .fav-prod-contatiner:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  .fav-kart-name-food {
+    margin-top: 166px;
+  }
+
+  /* .receipe-kart {
+    left: 380px;
+  } */
+}

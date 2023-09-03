@@ -4,9 +4,17 @@ const tastyTreats = new apiTastyTreats();
 
 import { filterFoods } from './filters-cat-pop.js';
 
-export let pagCurrent = 1;
+let pagCurrent = 1;
 
 export function paginationHandler(lastPage) {
+  //let pagCurrent = 1;
+  let pagLasApi = lastPage;
+
+  const colorButUnaktiv = '#9AB43750';
+  const colorButAktiv = '#99B336';
+
+  console.log(pagCurrent);
+
   const pagBeg = document.getElementById('pagination-begin');
   const pagPrev = document.getElementById('pagination-previous');
   const pagPrevNumb = document.getElementById('pagination-previous-numb');
@@ -15,29 +23,89 @@ export function paginationHandler(lastPage) {
   const pagNex = document.getElementById('pagination-next');
   const pagLas = document.getElementById('pagination-last');
 
-  let pagCurrent = 1;
-  //let pagLasApi = 0;
-  let pagLasApi = lastPage;
+  // const resetPagBut = document.getElementById('resetButton');
+  // function resetPagination() {
+  //   pagCurrent = 1;
+  //   filterFoods(pagCurrent);
+  //   pageAktualShowed.textContent = pagCurrent;
 
-  const colorButUnaktiv = '#9AB43750';
-  const colorButAktiv = '#99B336';
+  //   pagSec.disabled = false;
+  //   pagSec.style.pointerEvents = 'auto';
+  //   pagSec.style.backgroundColor = colorButAktiv;
+  //   pagSec.textContent = pagCurrent + 1;
 
-  //let lastPageFromFilters = lastPage;
+  //   pagNex.disabled = false;
+  //   pagNex.style.pointerEvents = 'auto';
+  //   pagNex.style.backgroundColor = colorButAktiv;
+
+  //   pagLas.disabled = false;
+  //   pagLas.style.pointerEvents = 'auto';
+  //   pagLas.style.backgroundColor = colorButAktiv;
+
+  //   pagPrevNumb.textContent = 'X';
+  //   pagPrevNumb.style.backgroundColor = colorButUnaktiv;
+  //   pagPrevNumb.disabled = true;
+  //   pagPrevNumb.style.pointerEvents = 'none';
+
+  //   pagPrev.disabled = true;
+  //   pagPrev.style.pointerEvents = 'none';
+  //   pagPrev.style.backgroundColor = colorButUnaktiv;
+
+  //   pagBeg.disabled = true;
+  //   pagBeg.style.pointerEvents = 'none';
+  //   pagBeg.style.backgroundColor = colorButUnaktiv;
+
+  //   filterFoods(1);
+  // }
+
+  //resetPagBut.addEventListener('click', resetPagination);
 
   pageAktualShowed.style.color = 'white';
   pageAktualShowed.style.backgroundColor = 'black';
   pageAktualShowed.style.fontSize = '20px';
 
-  tastyTreats.getDetailInformation().then(detailInfo => {
-    //console.log(pagLasApi);
+  pageAktualShowed.textContent = pagCurrent;
+  pageAktualShowed.style.pointerEvents = 'none';
+  pagSec.textContent = Number(pagCurrent) + 1;
 
+  pagPrevNumb.textContent = 'X';
+  pagPrevNumb.disabled = true;
+  pagPrevNumb.style.backgroundColor = colorButUnaktiv;
+  pagPrevNumb.style.pointerEvents = 'none';
+
+  pagPrev.disabled = true;
+  pagPrev.style.pointerEvents = 'none';
+  pagPrev.style.backgroundColor = colorButUnaktiv;
+
+  pagBeg.disabled = true;
+  pagBeg.style.pointerEvents = 'none';
+  pagBeg.style.backgroundColor = colorButUnaktiv;
+
+  pagSec.style.backgroundColor = colorButAktiv;
+  pagNex.style.backgroundColor = colorButAktiv;
+  pagLas.style.backgroundColor = colorButAktiv;
+
+  pagBeg.addEventListener('click', function () {
+    pagCurrent = 1;
+    filterFoods(pagCurrent);
     pageAktualShowed.textContent = pagCurrent;
-    pageAktualShowed.style.pointerEvents = 'none';
-    pagSec.textContent = Number(pagCurrent) + 1;
+
+    pagSec.disabled = false;
+    pagSec.style.pointerEvents = 'auto';
+    pagSec.style.backgroundColor = colorButAktiv;
+    pagSec.textContent = pagCurrent + 1;
+
+    pagNex.disabled = false;
+    pagNex.style.pointerEvents = 'auto';
+    pagNex.style.backgroundColor = colorButAktiv;
+
+    pagLas.disabled = false;
+    pagLas.style.pointerEvents = 'auto';
+    pagLas.style.backgroundColor = colorButAktiv;
 
     pagPrevNumb.textContent = 'X';
-    pagPrevNumb.disabled = true;
     pagPrevNumb.style.backgroundColor = colorButUnaktiv;
+    pagPrevNumb.disabled = true;
     pagPrevNumb.style.pointerEvents = 'none';
 
     pagPrev.disabled = true;
@@ -47,20 +115,19 @@ export function paginationHandler(lastPage) {
     pagBeg.disabled = true;
     pagBeg.style.pointerEvents = 'none';
     pagBeg.style.backgroundColor = colorButUnaktiv;
+  });
 
-    pagSec.style.backgroundColor = colorButAktiv;
-    pagNex.style.backgroundColor = colorButAktiv;
-    pagLas.style.backgroundColor = colorButAktiv;
-
-    pagBeg.addEventListener('click', function () {
-      pagCurrent = 1;
+  pagPrev.addEventListener('click', function () {
+    if (pagCurrent > 1) {
+      pagCurrent -= 1;
       filterFoods(pagCurrent);
       pageAktualShowed.textContent = pagCurrent;
-
       pagSec.disabled = false;
+
       pagSec.style.pointerEvents = 'auto';
       pagSec.style.backgroundColor = colorButAktiv;
       pagSec.textContent = pagCurrent + 1;
+      pagPrevNumb.textContent = pagCurrent - 1;
 
       pagNex.disabled = false;
       pagNex.style.pointerEvents = 'auto';
@@ -69,11 +136,14 @@ export function paginationHandler(lastPage) {
       pagLas.disabled = false;
       pagLas.style.pointerEvents = 'auto';
       pagLas.style.backgroundColor = colorButAktiv;
-
+    }
+    if (pagCurrent === pagLasApi - 1) {
+      pagSec.style.backgroundColor = colorButAktiv;
+    }
+    if (pagCurrent <= 1) {
       pagPrevNumb.textContent = 'X';
-      pagPrevNumb.style.backgroundColor = colorButUnaktiv;
       pagPrevNumb.disabled = true;
-      pagPrevNumb.style.pointerEvents = 'none';
+      pagPrevNumb.style.backgroundColor = colorButUnaktiv;
 
       pagPrev.disabled = true;
       pagPrev.style.pointerEvents = 'none';
@@ -82,45 +152,7 @@ export function paginationHandler(lastPage) {
       pagBeg.disabled = true;
       pagBeg.style.pointerEvents = 'none';
       pagBeg.style.backgroundColor = colorButUnaktiv;
-    });
-
-    pagPrev.addEventListener('click', function () {
-      if (pagCurrent > 1) {
-        pagCurrent -= 1;
-        filterFoods(pagCurrent);
-        pageAktualShowed.textContent = pagCurrent;
-        pagSec.disabled = false;
-
-        pagSec.style.pointerEvents = 'auto';
-        pagSec.style.backgroundColor = colorButAktiv;
-        pagSec.textContent = pagCurrent + 1;
-        pagPrevNumb.textContent = pagCurrent - 1;
-
-        pagNex.disabled = false;
-        pagNex.style.pointerEvents = 'auto';
-        pagNex.style.backgroundColor = colorButAktiv;
-
-        pagLas.disabled = false;
-        pagLas.style.pointerEvents = 'auto';
-        pagLas.style.backgroundColor = colorButAktiv;
-      }
-      if (pagCurrent === pagLasApi - 1) {
-        pagSec.style.backgroundColor = colorButAktiv;
-      }
-      if (pagCurrent <= 1) {
-        pagPrevNumb.textContent = 'X';
-        pagPrevNumb.disabled = true;
-        pagPrevNumb.style.backgroundColor = colorButUnaktiv;
-
-        pagPrev.disabled = true;
-        pagPrev.style.pointerEvents = 'none';
-        pagPrev.style.backgroundColor = colorButUnaktiv;
-
-        pagBeg.disabled = true;
-        pagBeg.style.pointerEvents = 'none';
-        pagBeg.style.backgroundColor = colorButUnaktiv;
-      }
-    });
+    }
   });
 
   pagPrevNumb.addEventListener('click', function () {
